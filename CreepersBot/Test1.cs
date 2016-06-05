@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CreepersBot
 {
-    public partial class Form1 : Form
+    public partial class Test1 : Form
     {
-        public Form1()
+        public Test1()
         {
             InitializeComponent();
         }

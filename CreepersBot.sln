@@ -5,16 +5,24 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreepersBot", "CreepersBot\CreepersBot.csproj", "{980AF2EE-7BEE-4202-9043-F34C7D5FC7C1}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CreepersBot_Setup", "CreepersBot_Setup\CreepersBot_Setup.vdproj", "{CA37A349-6F9F-4D60-8A3C-C1598D4582F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Realise x64|Any CPU = Realise x64|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{980AF2EE-7BEE-4202-9043-F34C7D5FC7C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{980AF2EE-7BEE-4202-9043-F34C7D5FC7C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980AF2EE-7BEE-4202-9043-F34C7D5FC7C1}.Realise x64|Any CPU.ActiveCfg = Realise x64|Any CPU
+		{980AF2EE-7BEE-4202-9043-F34C7D5FC7C1}.Realise x64|Any CPU.Build.0 = Realise x64|Any CPU
 		{980AF2EE-7BEE-4202-9043-F34C7D5FC7C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{980AF2EE-7BEE-4202-9043-F34C7D5FC7C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA37A349-6F9F-4D60-8A3C-C1598D4582F8}.Debug|Any CPU.ActiveCfg = Debug
+		{CA37A349-6F9F-4D60-8A3C-C1598D4582F8}.Realise x64|Any CPU.ActiveCfg = Release
+		{CA37A349-6F9F-4D60-8A3C-C1598D4582F8}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
