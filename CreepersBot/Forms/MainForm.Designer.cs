@@ -1,6 +1,6 @@
 ﻿namespace CreepersBot
 {
-    partial class MainForm
+    partial class f_Main
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(f_Main));
             this.Notifications = new System.Windows.Forms.NotifyIcon(this.components);
-            this.menu = new System.Windows.Forms.MenuStrip();
-            this.opt = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMB = new System.Windows.Forms.ToolStripMenuItem();
-            this.vTw = new System.Windows.Forms.ToolStripMenuItem();
-            this.twitchChatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mlg = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitMB = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu.SuspendLayout();
+            this.m_Menu = new System.Windows.Forms.MenuStrip();
+            this.mi_Options = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_Help = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_About = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_Authors = new System.Windows.Forms.ToolStripMenuItem();
+            this.m_Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // Notifications
@@ -47,77 +46,68 @@
             this.Notifications.Text = "CreepersBot";
             this.Notifications.Visible = true;
             // 
-            // menu
+            // m_Menu
             // 
-            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.opt,
-            this.toolsMB,
-            this.exitMB});
-            this.menu.Location = new System.Drawing.Point(0, 0);
-            this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(624, 24);
-            this.menu.TabIndex = 0;
-            this.menu.Text = "CreepersBot Menu";
+            this.m_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mi_Options,
+            this.mi_Help});
+            this.m_Menu.Location = new System.Drawing.Point(0, 0);
+            this.m_Menu.Name = "m_Menu";
+            this.m_Menu.Size = new System.Drawing.Size(624, 24);
+            this.m_Menu.TabIndex = 0;
+            this.m_Menu.Text = "m_Menu";
             // 
-            // opt
+            // mi_Options
             // 
-            this.opt.Name = "opt";
-            this.opt.Size = new System.Drawing.Size(61, 20);
-            this.opt.Text = "Options";
-            this.opt.Click += new System.EventHandler(this.opt_Click);
+            this.mi_Options.Name = "mi_Options";
+            this.mi_Options.Size = new System.Drawing.Size(61, 20);
+            this.mi_Options.Text = "Options";
             // 
-            // toolsMB
+            // mi_Help
             // 
-            this.toolsMB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vTw,
-            this.twitchChatToolStripMenuItem,
-            this.mlg});
-            this.toolsMB.Name = "toolsMB";
-            this.toolsMB.Size = new System.Drawing.Size(48, 20);
-            this.toolsMB.Text = "Tools";
+            this.mi_Help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewHelpToolStripMenuItem,
+            this.mi_Authors,
+            this.mi_About});
+            this.mi_Help.Name = "mi_Help";
+            this.mi_Help.Size = new System.Drawing.Size(44, 20);
+            this.mi_Help.Text = "Help";
             // 
-            // vTw
+            // viewHelpToolStripMenuItem
             // 
-            this.vTw.Name = "vTw";
-            this.vTw.Size = new System.Drawing.Size(154, 22);
-            this.vTw.Text = "TwitchChannel";
-            this.vTw.Click += new System.EventHandler(this.vTw_Click);
+            this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
+            this.viewHelpToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
+            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.viewHelpToolStripMenuItem.Text = "View Help";
             // 
-            // twitchChatToolStripMenuItem
+            // mi_About
             // 
-            this.twitchChatToolStripMenuItem.Name = "twitchChatToolStripMenuItem";
-            this.twitchChatToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.twitchChatToolStripMenuItem.Text = "TwitchChat";
+            this.mi_About.Name = "mi_About";
+            this.mi_About.Size = new System.Drawing.Size(173, 22);
+            this.mi_About.Text = "About CreepyBot";
             // 
-            // mlg
+            // mi_Authors
             // 
-            this.mlg.Name = "mlg";
-            this.mlg.Size = new System.Drawing.Size(154, 22);
-            this.mlg.Text = "MLG";
-            this.mlg.Click += new System.EventHandler(this.mlg_Click);
+            this.mi_Authors.Name = "mi_Authors";
+            this.mi_Authors.Size = new System.Drawing.Size(173, 22);
+            this.mi_Authors.Text = "Authors";
+            this.mi_Authors.Click += new System.EventHandler(this.mi_Authors_Click);
             // 
-            // exitMB
-            // 
-            this.exitMB.Name = "exitMB";
-            this.exitMB.Size = new System.Drawing.Size(37, 20);
-            this.exitMB.Text = "Exit";
-            this.exitMB.Click += new System.EventHandler(this.exitMB_Click);
-            // 
-            // MainForm
+            // f_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 322);
-            this.Controls.Add(this.menu);
+            this.Controls.Add(this.m_Menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menu;
+            this.MainMenuStrip = this.m_Menu;
             this.MaximizeBox = false;
-            this.Name = "MainForm";
+            this.Name = "f_Main";
             this.Text = "CreepersBot";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
-            this.menu.ResumeLayout(false);
-            this.menu.PerformLayout();
+            this.m_Menu.ResumeLayout(false);
+            this.m_Menu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,13 +116,12 @@
         #endregion
 
         private System.Windows.Forms.NotifyIcon Notifications;
-        private System.Windows.Forms.MenuStrip menu;
-        private System.Windows.Forms.ToolStripMenuItem exitMB;
-        private System.Windows.Forms.ToolStripMenuItem toolsMB;
-        private System.Windows.Forms.ToolStripMenuItem vTw;
-        private System.Windows.Forms.ToolStripMenuItem twitchChatToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mlg;
-        private System.Windows.Forms.ToolStripMenuItem opt;
+        private System.Windows.Forms.MenuStrip m_Menu;
+        private System.Windows.Forms.ToolStripMenuItem mi_Options;
+        private System.Windows.Forms.ToolStripMenuItem mi_Help;
+        private System.Windows.Forms.ToolStripMenuItem viewHelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mi_About;
+        private System.Windows.Forms.ToolStripMenuItem mi_Authors;
     }
 }
 

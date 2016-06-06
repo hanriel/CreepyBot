@@ -12,17 +12,38 @@ namespace CreepersBot.Forms
 {
     public partial class LoadForm : Form
     {
-        MainForm mF = new MainForm();
+        f_Main f_Main = new f_Main();
+
         public LoadForm() {
             InitializeComponent();
-            label2.Text += Application.ProductVersion;
-        }
-        private void loadB_Click(object sender, EventArgs e){mF.Show();Hide();}
-        private void eB_Click(object sender, EventArgs e){Application.Exit();}
+            la_Info.Text += Application.ProductVersion;
 
-        private void link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            la_Name.Left = (int)(128 * 3 / 2 - la_Name.Width / 2);
+            la_Info.Left = (int)(128 * 3 / 2 - la_Info.Width / 2);
+            la_Dev.Left = (int)(128 * 3 / 2 - la_Dev.Width / 2);
+
+            ll_Medieval.Left = (int)(128 * 3 / 2 - ll_Medieval.Width / 2);
+            ll_SAF.Left = (int)(128 * 3 / 2 - ll_SAF.Width / 2);
+        }
+
+        private void b_Load_Click(object sender, EventArgs e)
         {
+            f_Main.Show();
+            Hide();
+        }
+
+        private void b_Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ll_SAF_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e){
             System.Diagnostics.Process.Start("http://skyandforest.hol.es/");
         }
+
+        private void ll_MedievalCraft_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e){
+            System.Diagnostics.Process.Start("http://vk.com/craft_medieval");
+        }
+        
     }
 }

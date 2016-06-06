@@ -22,13 +22,11 @@ namespace CreepersBot
 
         string path_;
 
-        private void saveB1_Click(object sender, EventArgs e)
+        private void b_Save_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(
                 "Save?", "CreepersBot", MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == DialogResult.OK)
             {
-                saveFileDialog1.ShowDialog();
-                path_ = saveFileDialog1.FileName;
                 if (path_ != "")
                 {
                     try
@@ -36,7 +34,7 @@ namespace CreepersBot
                         BinaryFormatter i = new BinaryFormatter();
                         using (Stream writer = new FileStream(path_, FileMode.Create))
                         {
-                            i.Serialize(writer, textBox1.Text);
+                            i.Serialize(writer, tb_Channel.Text);
                         }
                     }
                     catch (IOException)
@@ -44,14 +42,16 @@ namespace CreepersBot
                         MessageBox.Show("Пошло всё нахуй!", "Какого хуя?", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop);
                     }
                 }
-                Hide();
+                Close();
             }
 
         }
 
-        private void Settings_Load(object sender, EventArgs e)
-        {
+        private void f_Settings_Load(object sender, EventArgs e){}
 
+        private void b_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
