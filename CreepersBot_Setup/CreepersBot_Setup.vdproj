@@ -15,26 +15,8 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0D9C0B19AC16EC7625C8E5519F4376C9"
-        "OwnerKey" = "8:_2874CF45C83A26BBD2BCCB53D86CE2D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2874CF45C83A26BBD2BCCB53D86CE2D0"
-        "OwnerKey" = "8:_C2A39DD9153BABE0902DC2D4AE27F584"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2874CF45C83A26BBD2BCCB53D86CE2D0"
-        "OwnerKey" = "8:_6A57E8E9DB4B44DAAE9267D298ED1121"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3250971E125D86B9EDB5B38950BF7830"
-        "OwnerKey" = "8:_2874CF45C83A26BBD2BCCB53D86CE2D0"
+        "MsmKey" = "8:_1DF4A9D0367042379CE0C2D276AAFB2B"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -46,25 +28,13 @@
         "Entry"
         {
         "MsmKey" = "8:_53EB7D93F8D00B2828B47015CB5AD420"
-        "OwnerKey" = "8:_6A57E8E9DB4B44DAAE9267D298ED1121"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_6A57E8E9DB4B44DAAE9267D298ED1121"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1DF4A9D0367042379CE0C2D276AAFB2B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_9735AD1FA78D48E3A8216FEC302B7B62"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C2A39DD9153BABE0902DC2D4AE27F584"
-        "OwnerKey" = "8:_6A57E8E9DB4B44DAAE9267D298ED1121"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -76,25 +46,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6A57E8E9DB4B44DAAE9267D298ED1121"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C2A39DD9153BABE0902DC2D4AE27F584"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2874CF45C83A26BBD2BCCB53D86CE2D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3250971E125D86B9EDB5B38950BF7830"
+        "OwnerKey" = "8:_1DF4A9D0367042379CE0C2D276AAFB2B"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -115,6 +67,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -131,6 +99,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -160,88 +136,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0D9C0B19AC16EC7625C8E5519F4376C9"
-            {
-            "SourcePath" = "8:Flash32_16_0_0_305.ocx"
-            "TargetName" = "8:Flash32_16_0_0_305.ocx"
-            "Tag" = "8:"
-            "Folder" = "8:_963E702C60D84BC5A8BCD5453BBE0502"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2874CF45C83A26BBD2BCCB53D86CE2D0"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.ShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_2874CF45C83A26BBD2BCCB53D86CE2D0"
-                    {
-                    "Name" = "8:Interop.ShockwaveFlashObjects.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Interop.ShockwaveFlashObjects.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_963E702C60D84BC5A8BCD5453BBE0502"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3250971E125D86B9EDB5B38950BF7830"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:TRUE"
-            "AssemblyAsmDisplayName" = "8:stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-                "ScatterAssemblies"
-                {
-                    "_3250971E125D86B9EDB5B38950BF7830"
-                    {
-                    "Name" = "8:stdole.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:stdole.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_963E702C60D84BC5A8BCD5453BBE0502"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_46333C83F7FD42AA84D14CB7A5A696D4"
             {
             "SourcePath" = "8:..\\..\\..\\..\\..\\Desktop\\CreepersBot\\favicon.ico"
@@ -311,37 +205,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C2A39DD9153BABE0902DC2D4AE27F584"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AxInterop.ShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_C2A39DD9153BABE0902DC2D4AE27F584"
-                    {
-                    "Name" = "8:AxInterop.ShockwaveFlashObjects.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:AxInterop.ShockwaveFlashObjects.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_963E702C60D84BC5A8BCD5453BBE0502"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
         }
@@ -434,7 +297,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CreepersBot_Setup"
         "ProductCode" = "8:{8DB43F30-E4E8-4C31-8C6F-8F4F23DA5207}"
-        "PackageCode" = "8:{3FBD179A-7D98-45CE-AAF9-50C967310F07}"
+        "PackageCode" = "8:{8A44AB3C-5CC5-44D1-8CF3-03617D47404A}"
         "UpgradeCode" = "8:{F0054B25-CAFA-4C4C-A211-FF6DDE4103AB}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -451,7 +314,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_46333C83F7FD42AA84D14CB7A5A696D4"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -554,7 +417,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_24E0772CE0CA45AE9A8CD938471E2E6D"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9598D60CA35D44A3BE8B5D623CEC59DA"
             {
             "Name" = "8:CreepersBot"
             "Arguments" = "8:"
@@ -562,13 +425,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_6A57E8E9DB4B44DAAE9267D298ED1121"
+            "Target" = "8:_1DF4A9D0367042379CE0C2D276AAFB2B"
             "Folder" = "8:_878DB98FC19F4C818D41649DC33F145B"
             "WorkingFolder" = "8:_963E702C60D84BC5A8BCD5453BBE0502"
-            "Icon" = "8:"
+            "Icon" = "8:_46333C83F7FD42AA84D14CB7A5A696D4"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3921FE3F0BDA46CEB4FA77B44F235E2A"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_BE3A407503514E0484DE4F276C527410"
             {
             "Name" = "8:CreepersBot"
             "Arguments" = "8:"
@@ -576,7 +439,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_6A57E8E9DB4B44DAAE9267D298ED1121"
+            "Target" = "8:_1DF4A9D0367042379CE0C2D276AAFB2B"
             "Folder" = "8:_B0C213B4B37C4C518A90DD223F1BB27F"
             "WorkingFolder" = "8:_963E702C60D84BC5A8BCD5453BBE0502"
             "Icon" = "8:_46333C83F7FD42AA84D14CB7A5A696D4"
@@ -981,7 +844,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6A57E8E9DB4B44DAAE9267D298ED1121"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_1DF4A9D0367042379CE0C2D276AAFB2B"
             {
             "SourcePath" = "8:..\\CreepersBot\\obj\\Debug\\CreepersBot.exe"
             "TargetName" = "8:"

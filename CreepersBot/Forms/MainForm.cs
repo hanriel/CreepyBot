@@ -12,37 +12,18 @@ namespace CreepersBot
 {
     public partial class MainForm : Form
     {
-        public String ver = "0.2 aplha";
-
         vTw vT = new vTw();
         Settings options = new Settings();
-
-        public void about(){
-            MessageBox.Show("Thank you for using CreepersBot ver " + ver);
-        }
 
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            about();
-        } 
-
         private void exitMB_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-        private void aboutMB_Click(object sender, EventArgs e)
-        {
-            about();
-        }
-
-        private void N_MDC(object sender, MouseEventArgs e){}
-        private void timer1_Tick(object sender, EventArgs e){}
         public void playSound(string path)
         {
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
@@ -72,6 +53,11 @@ namespace CreepersBot
         private void opt_Click(object sender, EventArgs e)
         {
             options.Show();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 

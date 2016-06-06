@@ -32,14 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Notifications = new System.Windows.Forms.NotifyIcon(this.components);
             this.menu = new System.Windows.Forms.MenuStrip();
-            this.aboutMB = new System.Windows.Forms.ToolStripMenuItem();
+            this.opt = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMB = new System.Windows.Forms.ToolStripMenuItem();
             this.vTw = new System.Windows.Forms.ToolStripMenuItem();
             this.twitchChatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mlg = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMB = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.opt = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,14 +46,12 @@
             this.Notifications.Icon = ((System.Drawing.Icon)(resources.GetObject("Notifications.Icon")));
             this.Notifications.Text = "CreepersBot";
             this.Notifications.Visible = true;
-            this.Notifications.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.N_MDC);
             // 
             // menu
             // 
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.opt,
             this.toolsMB,
-            this.aboutMB,
             this.exitMB});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
@@ -63,12 +59,12 @@
             this.menu.TabIndex = 0;
             this.menu.Text = "CreepersBot Menu";
             // 
-            // aboutMB
+            // opt
             // 
-            this.aboutMB.Name = "aboutMB";
-            this.aboutMB.Size = new System.Drawing.Size(52, 20);
-            this.aboutMB.Text = "About";
-            this.aboutMB.Click += new System.EventHandler(this.aboutMB_Click);
+            this.opt.Name = "opt";
+            this.opt.Size = new System.Drawing.Size(61, 20);
+            this.opt.Text = "Options";
+            this.opt.Click += new System.EventHandler(this.opt_Click);
             // 
             // toolsMB
             // 
@@ -107,30 +103,19 @@
             this.exitMB.Text = "Exit";
             this.exitMB.Click += new System.EventHandler(this.exitMB_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // opt
-            // 
-            this.opt.Name = "opt";
-            this.opt.Size = new System.Drawing.Size(61, 20);
-            this.opt.Text = "Options";
-            this.opt.Click += new System.EventHandler(this.opt_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 322);
             this.Controls.Add(this.menu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "CreepersBot";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.ResumeLayout(false);
@@ -142,9 +127,7 @@
 
         private System.Windows.Forms.NotifyIcon Notifications;
         private System.Windows.Forms.MenuStrip menu;
-        private System.Windows.Forms.ToolStripMenuItem aboutMB;
         private System.Windows.Forms.ToolStripMenuItem exitMB;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem toolsMB;
         private System.Windows.Forms.ToolStripMenuItem vTw;
         private System.Windows.Forms.ToolStripMenuItem twitchChatToolStripMenuItem;
