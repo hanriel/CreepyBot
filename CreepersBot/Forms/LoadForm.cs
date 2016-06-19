@@ -8,15 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CreepersBot.Forms
+namespace CreepyBot.Forms
 {
     public partial class LoadForm : Form
     {
         f_Main f_Main = new f_Main();
+        string AppName = Properties.Settings.Default.AppName;
 
         public LoadForm() {
             InitializeComponent();
-            la_Info.Text += Application.ProductVersion;
+            la_Info.Text += " v." + Application.ProductVersion;
 
             la_Name.Left = (int)(128 * 3 / 2 - la_Name.Width / 2);
             la_Info.Left = (int)(128 * 3 / 2 - la_Info.Width / 2);

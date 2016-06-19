@@ -1,4 +1,4 @@
-﻿namespace CreepersBot.Forms.About
+﻿namespace CreepyBot
 {
     partial class Authors
     {
@@ -52,7 +52,7 @@
             // i_MedievalLogo
             // 
             this.i_MedievalLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.i_MedievalLogo.Image = global::CreepersBot.Properties.Resources.MedievalLogo;
+            this.i_MedievalLogo.Image = global::CreepyBot.Properties.Resources.MedievalLogo;
             this.i_MedievalLogo.Location = new System.Drawing.Point(6, 6);
             this.i_MedievalLogo.Name = "i_MedievalLogo";
             this.i_MedievalLogo.Size = new System.Drawing.Size(128, 128);

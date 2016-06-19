@@ -2,11 +2,11 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("CreepersBot")]
+[assembly: AssemblyTitle("CreepyBot")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SkyAndForest")]
-[assembly: AssemblyProduct("CreepersBot")]
+[assembly: AssemblyProduct("CreepyBot")]
 [assembly: AssemblyCopyright("Copyright SkyAndForest ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -17,5 +17,5 @@ using System.Runtime.InteropServices;
 //      Minor Version 
 //      Build Number
 //      Revision
-[assembly: AssemblyVersion("16.23.1.2")]
-[assembly: AssemblyFileVersion("16.23.1.2 Alpha")]
+[assembly: AssemblyVersion("16.23.7.4")]
+[assembly: AssemblyFileVersion("16.23.7.4")]

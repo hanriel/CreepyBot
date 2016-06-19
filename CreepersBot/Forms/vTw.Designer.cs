@@ -1,4 +1,4 @@
-﻿namespace CreepersBot
+﻿namespace CreepyBot
 {
     partial class vTw
     {

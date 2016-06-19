@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 
-namespace CreepersBot
+namespace CreepyBot
 {
     public partial class vTw : Form
     {

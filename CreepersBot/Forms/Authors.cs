@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CreepersBot.Forms.About
+namespace CreepyBot
 {
     public partial class Authors : Form
     {
