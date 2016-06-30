@@ -1,6 +1,6 @@
 ﻿namespace CreepyBot
 {
-    partial class f_Main
+    public partial class f_Main
     {
         /// <summary>
         /// Required designer variable.
@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(f_Main));
@@ -40,12 +40,12 @@
             this.mi_viewHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_About = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_Authors = new System.Windows.Forms.ToolStripMenuItem();
-            this.rtb_Chat = new System.Windows.Forms.RichTextBox();
             this.tb_Send = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.b_SendMSG = new System.Windows.Forms.Button();
+            this.ircTimer = new System.Windows.Forms.Timer(this.components);
+            this.b_Send = new System.Windows.Forms.Button();
             this.tc_1 = new System.Windows.Forms.TabControl();
             this.tp_1 = new System.Windows.Forms.TabPage();
+            this.rtb_Chat = new System.Windows.Forms.RichTextBox();
             this.tp_2 = new System.Windows.Forms.TabPage();
             this.m_Menu.SuspendLayout();
             this.tc_1.SuspendLayout();
@@ -84,7 +84,7 @@
             this.mi_Connect.Name = "mi_Connect";
             this.mi_Connect.Size = new System.Drawing.Size(133, 22);
             this.mi_Connect.Text = "Connect";
-            this.mi_Connect.Click += new System.EventHandler(this.sConnect);
+            this.mi_Connect.Click += new System.EventHandler(this.Connect);
             // 
             // mi_Disconnect
             // 
@@ -92,7 +92,7 @@
             this.mi_Disconnect.Name = "mi_Disconnect";
             this.mi_Disconnect.Size = new System.Drawing.Size(133, 22);
             this.mi_Disconnect.Text = "Disconnect";
-            this.mi_Disconnect.Click += new System.EventHandler(this.sDisconnect);
+            this.mi_Disconnect.Click += new System.EventHandler(this.Disconnect);
             // 
             // mi_Options
             // 
@@ -131,38 +131,28 @@
             this.mi_Authors.Text = "Authors";
             this.mi_Authors.Click += new System.EventHandler(this.mi_Authors_Click);
             // 
-            // rtb_Chat
-            // 
-            this.rtb_Chat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.rtb_Chat.ForeColor = System.Drawing.SystemColors.Window;
-            this.rtb_Chat.Location = new System.Drawing.Point(6, 6);
-            this.rtb_Chat.Name = "rtb_Chat";
-            this.rtb_Chat.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.rtb_Chat.Size = new System.Drawing.Size(400, 345);
-            this.rtb_Chat.TabIndex = 1;
-            this.rtb_Chat.Text = "";
-            // 
             // tb_Send
             // 
+            this.tb_Send.Enabled = false;
             this.tb_Send.Location = new System.Drawing.Point(6, 357);
+            this.tb_Send.MaxLength = 150;
             this.tb_Send.Name = "tb_Send";
             this.tb_Send.Size = new System.Drawing.Size(319, 20);
             this.tb_Send.TabIndex = 2;
             // 
-            // timer1
+            // ircTimer
             // 
-            this.timer1.Interval = 400;
-            this.timer1.Tick += new System.EventHandler(this.Update);
+            this.ircTimer.Tick += new System.EventHandler(this.Timer);
             // 
-            // b_SendMSG
+            // b_Send
             // 
-            this.b_SendMSG.Enabled = false;
-            this.b_SendMSG.Location = new System.Drawing.Point(331, 354);
-            this.b_SendMSG.Name = "b_SendMSG";
-            this.b_SendMSG.Size = new System.Drawing.Size(75, 23);
-            this.b_SendMSG.TabIndex = 3;
-            this.b_SendMSG.Text = "Send";
-            this.b_SendMSG.UseVisualStyleBackColor = true;
+            this.b_Send.Enabled = false;
+            this.b_Send.Location = new System.Drawing.Point(331, 354);
+            this.b_Send.Name = "b_Send";
+            this.b_Send.Size = new System.Drawing.Size(75, 23);
+            this.b_Send.TabIndex = 3;
+            this.b_Send.Text = "Send";
+            this.b_Send.UseVisualStyleBackColor = true;
             // 
             // tc_1
             // 
@@ -178,7 +168,7 @@
             // 
             this.tp_1.Controls.Add(this.rtb_Chat);
             this.tp_1.Controls.Add(this.tb_Send);
-            this.tp_1.Controls.Add(this.b_SendMSG);
+            this.tp_1.Controls.Add(this.b_Send);
             this.tp_1.Location = new System.Drawing.Point(4, 22);
             this.tp_1.Name = "tp_1";
             this.tp_1.Padding = new System.Windows.Forms.Padding(3);
@@ -186,6 +176,15 @@
             this.tp_1.TabIndex = 0;
             this.tp_1.Text = "Chat";
             this.tp_1.UseVisualStyleBackColor = true;
+            // 
+            // rtb_Chat
+            // 
+            this.rtb_Chat.HideSelection = false;
+            this.rtb_Chat.Location = new System.Drawing.Point(3, 6);
+            this.rtb_Chat.Name = "rtb_Chat";
+            this.rtb_Chat.Size = new System.Drawing.Size(403, 345);
+            this.rtb_Chat.TabIndex = 5;
+            this.rtb_Chat.Text = " [BOT] [DATE] <Ник>: Текст для примера!!!";
             // 
             // tp_2
             // 
@@ -230,16 +229,16 @@
         private System.Windows.Forms.ToolStripMenuItem mi_viewHelp;
         private System.Windows.Forms.ToolStripMenuItem mi_About;
         private System.Windows.Forms.ToolStripMenuItem mi_Authors;
-        private System.Windows.Forms.RichTextBox rtb_Chat;
         private System.Windows.Forms.TextBox tb_Send;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer ircTimer;
         private System.Windows.Forms.ToolStripMenuItem botToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mi_Connect;
         private System.Windows.Forms.ToolStripMenuItem mi_Disconnect;
-        private System.Windows.Forms.Button b_SendMSG;
+        private System.Windows.Forms.Button b_Send;
         private System.Windows.Forms.TabControl tc_1;
         private System.Windows.Forms.TabPage tp_1;
         private System.Windows.Forms.TabPage tp_2;
+        public System.Windows.Forms.RichTextBox rtb_Chat;
     }
 }
 

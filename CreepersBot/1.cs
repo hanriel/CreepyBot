@@ -26,30 +26,22 @@ namespace CreepyBot
             return true;
         }
 
-        public bool MBox(string type)
+        public bool MBox(int type, string msg)
         {
-            if (type.Length != 0)
-            {
-                if (type == "1")
+                if (type == 1)
                 {
                     if (MessageBox.Show("Save?", "CreepersBot", MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == DialogResult.OK) return true;
                     else return false;
                 }
-                if (type == "2")
+                if (type == 2)
                 {
-                    MessageBox.Show("Вините разработчика...", "Ошибка!?", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop);
+                    MessageBox.Show(msg, "Ошибка!?", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop);
                     return true;
                 }
                 else
                 {
                     return false;
                 }
-
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }

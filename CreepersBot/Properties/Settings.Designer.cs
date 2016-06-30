@@ -25,7 +25,7 @@ namespace CreepyBot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("SkyAndForest")]
         public string channel {
             get {
                 return ((string)(this["channel"]));
@@ -37,37 +37,94 @@ namespace CreepyBot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string oAuth {
+        [global::System.Configuration.DefaultSettingValueAttribute("oauth:vrl7oh07sss5qsuyutb0x9mq3nbvg6")]
+        public string password {
             get {
-                return ((string)(this["oAuth"]));
+                return ((string)(this["password"]));
             }
             set {
-                this["oAuth"] = value;
+                this["password"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string User {
+        [global::System.Configuration.DefaultSettingValueAttribute("CreepersBot")]
+        public string user {
             get {
-                return ((string)(this["User"]));
+                return ((string)(this["user"]));
             }
             set {
-                this["User"] = value;
+                this["user"] = value;
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("CreepyBot")]
         public string AppName {
             get {
                 return ((string)(this["AppName"]));
             }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int msgMax {
+            get {
+                return ((int)(this["msgMax"]));
+            }
             set {
-                this["AppName"] = value;
+                this["msgMax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int msgDelay {
+            get {
+                return ((int)(this["msgDelay"]));
+            }
+            set {
+                this["msgDelay"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("CreepersBot joined to chat...")]
+        public string JoinMessage {
+            get {
+                return ((string)(this["JoinMessage"]));
+            }
+            set {
+                this["JoinMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("irc.twitch.tv")]
+        public string ircHost {
+            get {
+                return ((string)(this["ircHost"]));
+            }
+            set {
+                this["ircHost"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6667")]
+        public int ircPort {
+            get {
+                return ((int)(this["ircPort"]));
+            }
+            set {
+                this["ircPort"] = value;
             }
         }
     }
