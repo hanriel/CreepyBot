@@ -41,6 +41,8 @@
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.la_msgMax = new System.Windows.Forms.Label();
             this.la_msgDelay = new System.Windows.Forms.Label();
+            this.cb_shop = new System.Windows.Forms.ComboBox();
+            this.b_cmds = new System.Windows.Forms.Button();
             this.gb_Account.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -178,12 +180,34 @@
             this.la_msgDelay.TabIndex = 6;
             this.la_msgDelay.Text = "Message Delay";
             // 
+            // cb_shop
+            // 
+            this.cb_shop.FormattingEnabled = true;
+            this.cb_shop.Items.AddRange(new object[] {
+            "true",
+            "false"});
+            this.cb_shop.Location = new System.Drawing.Point(104, 171);
+            this.cb_shop.Name = "cb_shop";
+            this.cb_shop.Size = new System.Drawing.Size(100, 21);
+            this.cb_shop.TabIndex = 7;
+            // 
+            // b_cmds
+            // 
+            this.b_cmds.Location = new System.Drawing.Point(104, 227);
+            this.b_cmds.Name = "b_cmds";
+            this.b_cmds.Size = new System.Drawing.Size(81, 23);
+            this.b_cmds.TabIndex = 8;
+            this.b_cmds.Text = "Commands";
+            this.b_cmds.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.ControlBox = false;
+            this.Controls.Add(this.b_cmds);
+            this.Controls.Add(this.cb_shop);
             this.Controls.Add(this.la_msgDelay);
             this.Controls.Add(this.la_msgMax);
             this.Controls.Add(this.numericUpDown2);
@@ -219,5 +243,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label la_msgMax;
         private System.Windows.Forms.Label la_msgDelay;
+        private System.Windows.Forms.ComboBox cb_shop;
+        private System.Windows.Forms.Button b_cmds;
     }
 }

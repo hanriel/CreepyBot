@@ -25,7 +25,7 @@ namespace CreepyBot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SkyAndForest")]
+        [global::System.Configuration.DefaultSettingValueAttribute("CreeperMenn")]
         public string channel {
             get {
                 return ((string)(this["channel"]));
@@ -125,6 +125,30 @@ namespace CreepyBot.Properties {
             }
             set {
                 this["ircPort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool shop {
+            get {
+                return ((bool)(this["shop"]));
+            }
+            set {
+                this["shop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Setting {
+            get {
+                return ((string)(this["Setting"]));
+            }
+            set {
+                this["Setting"] = value;
             }
         }
     }

@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="channel" Type="System.String" Scope="User">
-      <Value Profile="(Default)">SkyAndForest</Value>
+      <Value Profile="(Default)">CreeperMenn</Value>
     </Setting>
     <Setting Name="password" Type="System.String" Scope="User">
       <Value Profile="(Default)">oauth:vrl7oh07sss5qsuyutb0x9mq3nbvg6</Value>
@@ -28,6 +28,12 @@
     </Setting>
     <Setting Name="ircPort" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">6667</Value>
+    </Setting>
+    <Setting Name="shop" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

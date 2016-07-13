@@ -35,6 +35,7 @@
             this.botToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_Connect = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_Disconnect = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_Options = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_viewHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,7 +75,8 @@
             // 
             this.botToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mi_Connect,
-            this.mi_Disconnect});
+            this.mi_Disconnect,
+            this.exitToolStripMenuItem});
             this.botToolStripMenuItem.Name = "botToolStripMenuItem";
             this.botToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.botToolStripMenuItem.Text = "Bot";
@@ -82,17 +84,24 @@
             // mi_Connect
             // 
             this.mi_Connect.Name = "mi_Connect";
-            this.mi_Connect.Size = new System.Drawing.Size(133, 22);
+            this.mi_Connect.Size = new System.Drawing.Size(152, 22);
             this.mi_Connect.Text = "Connect";
-            this.mi_Connect.Click += new System.EventHandler(this.Connect);
+            this.mi_Connect.Click += new System.EventHandler(this.b_connact);
             // 
             // mi_Disconnect
             // 
             this.mi_Disconnect.Enabled = false;
             this.mi_Disconnect.Name = "mi_Disconnect";
-            this.mi_Disconnect.Size = new System.Drawing.Size(133, 22);
+            this.mi_Disconnect.Size = new System.Drawing.Size(152, 22);
             this.mi_Disconnect.Text = "Disconnect";
             this.mi_Disconnect.Click += new System.EventHandler(this.Disconnect);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // mi_Options
             // 
@@ -139,6 +148,7 @@
             this.tb_Send.Name = "tb_Send";
             this.tb_Send.Size = new System.Drawing.Size(319, 20);
             this.tb_Send.TabIndex = 2;
+            this.tb_Send.KeyDown += new System.Windows.Forms.KeyEventHandler(this.eSend);
             // 
             // ircTimer
             // 
@@ -153,6 +163,7 @@
             this.b_Send.TabIndex = 3;
             this.b_Send.Text = "Send";
             this.b_Send.UseVisualStyleBackColor = true;
+            this.b_Send.Click += new System.EventHandler(this.bSend);
             // 
             // tc_1
             // 
@@ -184,7 +195,7 @@
             this.rtb_Chat.Name = "rtb_Chat";
             this.rtb_Chat.Size = new System.Drawing.Size(403, 345);
             this.rtb_Chat.TabIndex = 5;
-            this.rtb_Chat.Text = " [BOT] [DATE] <Ник>: Текст для примера!!!";
+            this.rtb_Chat.Text = "";
             // 
             // tp_2
             // 
@@ -209,6 +220,7 @@
             this.MainMenuStrip = this.m_Menu;
             this.MaximizeBox = false;
             this.Name = "f_Main";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.f_Main_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.m_Menu.ResumeLayout(false);
             this.m_Menu.PerformLayout();
@@ -239,6 +251,7 @@
         private System.Windows.Forms.TabPage tp_1;
         private System.Windows.Forms.TabPage tp_2;
         public System.Windows.Forms.RichTextBox rtb_Chat;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

@@ -26,8 +26,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>CreepyBot</ProductName>
     <PublisherName>SkyAndForest</PublisherName>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>16.25.3.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>16.28.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -96,12 +96,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="1.cs" />
+    <Compile Include="Utills.cs" />
+    <Compile Include="cmds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>cmds.settings</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Authors.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Authors.Designer.cs">
       <DependentUpon>Authors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\cmdList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\cmdList.Designer.cs">
+      <DependentUpon>cmdList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoadForm.cs">
       <SubType>Form</SubType>
@@ -123,12 +134,6 @@
     <Compile Include="Forms\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\vTw.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\vTw.Designer.cs">
-      <DependentUpon>vTw.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -143,6 +148,9 @@
     <EmbeddedResource Include="Forms\Authors.resx">
       <DependentUpon>Authors.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\cmdList.resx">
+      <DependentUpon>cmdList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoadForm.resx">
       <DependentUpon>LoadForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,9 +160,6 @@
     <EmbeddedResource Include="Forms\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\vTw.resx">
-      <DependentUpon>vTw.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -163,6 +168,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="cmds.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>cmds.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
