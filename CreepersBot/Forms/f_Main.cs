@@ -329,25 +329,21 @@ namespace CreepyBot
 
     #region msg
 
-public class _message
-{
-    public string name, cmd, channel, msg;
-
-    public _message()
+    public class _message
     {
+        public string name, cmd, channel, msg;
 
-    }
-    public void ParseToString(string msgRaw)
-    {
-        name = Regex.Match(msgRaw, @"(?:[:](\S+)\!)").Groups[1].Value;
-        cmd = Regex.Match(msgRaw, @"(PRIVMSG|NOTICE|JOIN|NICK|QUIT|PART|KICK|MODE|PING|ACTION)").Groups[1].Value;
-        channel = Regex.Match(msgRaw, @"\#(\S+)").Groups[1].Value;
-        msg = Regex.Match(msgRaw, @"(?: [:](.+)) ?$").Groups[1].Value;
-    }
-    public void setCTT(_message _1)
-    {
+        public _message()
+        {
 
+        }
+        public void ParseToString(string msgRaw)
+        {
+            name = Regex.Match(msgRaw, @"(?:[:](\S+)\!)").Groups[1].Value;
+            cmd = Regex.Match(msgRaw, @"(PRIVMSG|NOTICE|JOIN|NICK|QUIT|PART|KICK|MODE|PING|ACTION)").Groups[1].Value;
+            channel = Regex.Match(msgRaw, @"\#(\S+)").Groups[1].Value;
+            msg = Regex.Match(msgRaw, @"(?: [:](.+)) ?$").Groups[1].Value;
+        }
     }
-}
-}
     #endregion msg
+}

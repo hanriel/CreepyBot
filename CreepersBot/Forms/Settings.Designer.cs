@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tb_Channel = new System.Windows.Forms.TextBox();
             this.gb_Account = new System.Windows.Forms.GroupBox();
             this.ll_oAuth = new System.Windows.Forms.LinkLabel();
@@ -41,11 +42,32 @@
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.la_msgMax = new System.Windows.Forms.Label();
             this.la_msgDelay = new System.Windows.Forms.Label();
-            this.cb_shop = new System.Windows.Forms.ComboBox();
-            this.b_cmds = new System.Windows.Forms.Button();
+            this.tc_Settings = new System.Windows.Forms.TabControl();
+            this.tb_Account = new System.Windows.Forms.TabPage();
+            this.tp_Chat = new System.Windows.Forms.TabPage();
+            this.tp_Notify = new System.Windows.Forms.TabPage();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.la_What = new System.Windows.Forms.Label();
+            this.cb_Notify = new System.Windows.Forms.CheckBox();
+            this.tt_1 = new System.Windows.Forms.ToolTip(this.components);
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.gb_Sound = new System.Windows.Forms.GroupBox();
+            this.la_Volume = new System.Windows.Forms.Label();
+            this.la_Track = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.b_sAdd = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.gb_Account.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.tc_Settings.SuspendLayout();
+            this.tb_Account.SuspendLayout();
+            this.tp_Chat.SuspendLayout();
+            this.tp_Notify.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.gb_Sound.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_Channel
@@ -54,16 +76,17 @@
             this.tb_Channel.Name = "tb_Channel";
             this.tb_Channel.Size = new System.Drawing.Size(100, 20);
             this.tb_Channel.TabIndex = 0;
+            this.tt_1.SetToolTip(this.tb_Channel, "The channel name you want to connect.");
             // 
             // gb_Account
             // 
             this.gb_Account.Controls.Add(this.ll_oAuth);
+            this.gb_Account.Controls.Add(this.la_Channel);
+            this.gb_Account.Controls.Add(this.tb_User);
             this.gb_Account.Controls.Add(this.la_UserName);
             this.gb_Account.Controls.Add(this.tb_oAuth);
-            this.gb_Account.Controls.Add(this.tb_User);
-            this.gb_Account.Controls.Add(this.la_Channel);
             this.gb_Account.Controls.Add(this.tb_Channel);
-            this.gb_Account.Location = new System.Drawing.Point(12, 12);
+            this.gb_Account.Location = new System.Drawing.Point(6, 6);
             this.gb_Account.Name = "gb_Account";
             this.gb_Account.Size = new System.Drawing.Size(260, 100);
             this.gb_Account.TabIndex = 1;
@@ -79,6 +102,8 @@
             this.ll_oAuth.TabIndex = 5;
             this.ll_oAuth.TabStop = true;
             this.ll_oAuth.Text = "oAuth:";
+            this.tt_1.SetToolTip(this.ll_oAuth, "Key authorization issued by the service Twitch.tv\r\nClick on the link something to" +
+        " get it ->");
             // 
             // la_UserName
             // 
@@ -88,6 +113,7 @@
             this.la_UserName.Size = new System.Drawing.Size(63, 13);
             this.la_UserName.TabIndex = 4;
             this.la_UserName.Text = "User Name:";
+            this.tt_1.SetToolTip(this.la_UserName, "Bot user name that will be connected to the channel.");
             // 
             // tb_oAuth
             // 
@@ -96,6 +122,8 @@
             this.tb_oAuth.PasswordChar = '*';
             this.tb_oAuth.Size = new System.Drawing.Size(100, 20);
             this.tb_oAuth.TabIndex = 3;
+            this.tt_1.SetToolTip(this.tb_oAuth, "Key authorization issued by the service Twitch.tv\r\nClick on the link something to" +
+        " get it ->");
             // 
             // tb_User
             // 
@@ -103,6 +131,7 @@
             this.tb_User.Name = "tb_User";
             this.tb_User.Size = new System.Drawing.Size(100, 20);
             this.tb_User.TabIndex = 2;
+            this.tt_1.SetToolTip(this.tb_User, "Bot user name that will be connected to the channel.");
             // 
             // la_Channel
             // 
@@ -112,10 +141,11 @@
             this.la_Channel.Size = new System.Drawing.Size(80, 13);
             this.la_Channel.TabIndex = 1;
             this.la_Channel.Text = "Channel Name:";
+            this.tt_1.SetToolTip(this.la_Channel, "The channel name you want to connect.");
             // 
             // b_Save
             // 
-            this.b_Save.Location = new System.Drawing.Point(12, 227);
+            this.b_Save.Location = new System.Drawing.Point(12, 332);
             this.b_Save.Name = "b_Save";
             this.b_Save.Size = new System.Drawing.Size(75, 23);
             this.b_Save.TabIndex = 2;
@@ -125,7 +155,7 @@
             // 
             // b_Exit
             // 
-            this.b_Exit.Location = new System.Drawing.Point(191, 227);
+            this.b_Exit.Location = new System.Drawing.Point(93, 332);
             this.b_Exit.Name = "b_Exit";
             this.b_Exit.Size = new System.Drawing.Size(75, 23);
             this.b_Exit.TabIndex = 2;
@@ -135,7 +165,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(104, 118);
+            this.numericUpDown1.Location = new System.Drawing.Point(89, 9);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -147,7 +177,7 @@
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(104, 144);
+            this.numericUpDown2.Location = new System.Drawing.Point(89, 35);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             10,
             0,
@@ -165,7 +195,7 @@
             // la_msgMax
             // 
             this.la_msgMax.AutoSize = true;
-            this.la_msgMax.Location = new System.Drawing.Point(21, 124);
+            this.la_msgMax.Location = new System.Drawing.Point(6, 15);
             this.la_msgMax.Name = "la_msgMax";
             this.la_msgMax.Size = new System.Drawing.Size(73, 13);
             this.la_msgMax.TabIndex = 5;
@@ -174,47 +204,194 @@
             // la_msgDelay
             // 
             this.la_msgDelay.AutoSize = true;
-            this.la_msgDelay.Location = new System.Drawing.Point(21, 150);
+            this.la_msgDelay.Location = new System.Drawing.Point(6, 41);
             this.la_msgDelay.Name = "la_msgDelay";
             this.la_msgDelay.Size = new System.Drawing.Size(80, 13);
             this.la_msgDelay.TabIndex = 6;
             this.la_msgDelay.Text = "Message Delay";
             // 
-            // cb_shop
+            // tc_Settings
             // 
-            this.cb_shop.FormattingEnabled = true;
-            this.cb_shop.Items.AddRange(new object[] {
-            "true",
-            "false"});
-            this.cb_shop.Location = new System.Drawing.Point(104, 171);
-            this.cb_shop.Name = "cb_shop";
-            this.cb_shop.Size = new System.Drawing.Size(100, 21);
-            this.cb_shop.TabIndex = 7;
+            this.tc_Settings.Controls.Add(this.tb_Account);
+            this.tc_Settings.Controls.Add(this.tp_Chat);
+            this.tc_Settings.Controls.Add(this.tp_Notify);
+            this.tc_Settings.Location = new System.Drawing.Point(12, 12);
+            this.tc_Settings.Name = "tc_Settings";
+            this.tc_Settings.SelectedIndex = 0;
+            this.tc_Settings.Size = new System.Drawing.Size(538, 314);
+            this.tc_Settings.TabIndex = 9;
             // 
-            // b_cmds
+            // tb_Account
             // 
-            this.b_cmds.Location = new System.Drawing.Point(104, 227);
-            this.b_cmds.Name = "b_cmds";
-            this.b_cmds.Size = new System.Drawing.Size(81, 23);
-            this.b_cmds.TabIndex = 8;
-            this.b_cmds.Text = "Commands";
-            this.b_cmds.UseVisualStyleBackColor = true;
+            this.tb_Account.Controls.Add(this.gb_Account);
+            this.tb_Account.Location = new System.Drawing.Point(4, 22);
+            this.tb_Account.Name = "tb_Account";
+            this.tb_Account.Padding = new System.Windows.Forms.Padding(3);
+            this.tb_Account.Size = new System.Drawing.Size(530, 288);
+            this.tb_Account.TabIndex = 0;
+            this.tb_Account.Text = "Account";
+            this.tb_Account.UseVisualStyleBackColor = true;
+            // 
+            // tp_Chat
+            // 
+            this.tp_Chat.Controls.Add(this.la_msgMax);
+            this.tp_Chat.Controls.Add(this.numericUpDown1);
+            this.tp_Chat.Controls.Add(this.numericUpDown2);
+            this.tp_Chat.Controls.Add(this.la_msgDelay);
+            this.tp_Chat.Location = new System.Drawing.Point(4, 22);
+            this.tp_Chat.Name = "tp_Chat";
+            this.tp_Chat.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_Chat.Size = new System.Drawing.Size(530, 288);
+            this.tp_Chat.TabIndex = 1;
+            this.tp_Chat.Text = "Chat";
+            this.tp_Chat.UseVisualStyleBackColor = true;
+            // 
+            // tp_Notify
+            // 
+            this.tp_Notify.Controls.Add(this.gb_Sound);
+            this.tp_Notify.Controls.Add(this.cb_Notify);
+            this.tp_Notify.Controls.Add(this.la_What);
+            this.tp_Notify.Controls.Add(this.checkedListBox1);
+            this.tp_Notify.Location = new System.Drawing.Point(4, 22);
+            this.tp_Notify.Name = "tp_Notify";
+            this.tp_Notify.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_Notify.Size = new System.Drawing.Size(530, 288);
+            this.tp_Notify.TabIndex = 2;
+            this.tp_Notify.Text = "Notify";
+            this.tp_Notify.UseVisualStyleBackColor = true;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "User joined the channel",
+            "User disconnected from the channel",
+            "New message",
+            "User has Followed",
+            "User has Subscribed"});
+            this.checkedListBox1.Location = new System.Drawing.Point(6, 19);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(198, 79);
+            this.checkedListBox1.TabIndex = 0;
+            // 
+            // la_What
+            // 
+            this.la_What.AutoSize = true;
+            this.la_What.Location = new System.Drawing.Point(6, 3);
+            this.la_What.Name = "la_What";
+            this.la_What.Size = new System.Drawing.Size(60, 13);
+            this.la_What.TabIndex = 1;
+            this.la_What.Text = "What Alert:";
+            this.tt_1.SetToolTip(this.la_What, "What are the warning display?");
+            // 
+            // cb_Notify
+            // 
+            this.cb_Notify.AutoSize = true;
+            this.cb_Notify.Location = new System.Drawing.Point(9, 265);
+            this.cb_Notify.Name = "cb_Notify";
+            this.cb_Notify.Size = new System.Drawing.Size(59, 17);
+            this.cb_Notify.TabIndex = 2;
+            this.cb_Notify.Text = "Notify?";
+            this.cb_Notify.UseVisualStyleBackColor = true;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.LargeChange = 3;
+            this.trackBar1.Location = new System.Drawing.Point(6, 67);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(302, 45);
+            this.trackBar1.TabIndex = 2;
+            this.trackBar1.TickFrequency = 50;
+            this.trackBar1.Value = 100;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // gb_Sound
+            // 
+            this.gb_Sound.Controls.Add(this.numericUpDown3);
+            this.gb_Sound.Controls.Add(this.button1);
+            this.gb_Sound.Controls.Add(this.b_sAdd);
+            this.gb_Sound.Controls.Add(this.comboBox1);
+            this.gb_Sound.Controls.Add(this.la_Track);
+            this.gb_Sound.Controls.Add(this.la_Volume);
+            this.gb_Sound.Controls.Add(this.trackBar1);
+            this.gb_Sound.Location = new System.Drawing.Point(210, 6);
+            this.gb_Sound.Name = "gb_Sound";
+            this.gb_Sound.Size = new System.Drawing.Size(314, 263);
+            this.gb_Sound.TabIndex = 4;
+            this.gb_Sound.TabStop = false;
+            this.gb_Sound.Text = "Sound";
+            // 
+            // la_Volume
+            // 
+            this.la_Volume.AutoSize = true;
+            this.la_Volume.Location = new System.Drawing.Point(6, 43);
+            this.la_Volume.Name = "la_Volume";
+            this.la_Volume.Size = new System.Drawing.Size(45, 13);
+            this.la_Volume.TabIndex = 3;
+            this.la_Volume.Text = "Volume:";
+            // 
+            // la_Track
+            // 
+            this.la_Track.AutoSize = true;
+            this.la_Track.Location = new System.Drawing.Point(6, 16);
+            this.la_Track.Name = "la_Track";
+            this.la_Track.Size = new System.Drawing.Size(38, 13);
+            this.la_Track.TabIndex = 4;
+            this.la_Track.Text = "Track:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Хуйня.wav",
+            "Блядина.wav"});
+            this.comboBox1.Location = new System.Drawing.Point(50, 13);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(96, 21);
+            this.comboBox1.TabIndex = 5;
+            // 
+            // b_sAdd
+            // 
+            this.b_sAdd.Location = new System.Drawing.Point(152, 11);
+            this.b_sAdd.Name = "b_sAdd";
+            this.b_sAdd.Size = new System.Drawing.Size(75, 23);
+            this.b_sAdd.TabIndex = 6;
+            this.b_sAdd.Text = "Add";
+            this.b_sAdd.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(233, 11);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Remove";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(50, 40);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(96, 20);
+            this.numericUpDown3.TabIndex = 9;
+            this.numericUpDown3.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(561, 363);
             this.ControlBox = false;
-            this.Controls.Add(this.b_cmds);
-            this.Controls.Add(this.cb_shop);
-            this.Controls.Add(this.la_msgDelay);
-            this.Controls.Add(this.la_msgMax);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.tc_Settings);
             this.Controls.Add(this.b_Save);
             this.Controls.Add(this.b_Exit);
-            this.Controls.Add(this.gb_Account);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Settings";
             this.Text = "Settings";
@@ -223,8 +400,17 @@
             this.gb_Account.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            this.tc_Settings.ResumeLayout(false);
+            this.tb_Account.ResumeLayout(false);
+            this.tp_Chat.ResumeLayout(false);
+            this.tp_Chat.PerformLayout();
+            this.tp_Notify.ResumeLayout(false);
+            this.tp_Notify.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.gb_Sound.ResumeLayout(false);
+            this.gb_Sound.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -243,7 +429,21 @@
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label la_msgMax;
         private System.Windows.Forms.Label la_msgDelay;
-        private System.Windows.Forms.ComboBox cb_shop;
-        private System.Windows.Forms.Button b_cmds;
+        private System.Windows.Forms.TabControl tc_Settings;
+        private System.Windows.Forms.TabPage tb_Account;
+        private System.Windows.Forms.TabPage tp_Chat;
+        private System.Windows.Forms.TabPage tp_Notify;
+        private System.Windows.Forms.CheckBox cb_Notify;
+        private System.Windows.Forms.Label la_What;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.ToolTip tt_1;
+        private System.Windows.Forms.GroupBox gb_Sound;
+        private System.Windows.Forms.Label la_Track;
+        private System.Windows.Forms.Label la_Volume;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button b_sAdd;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
     }
 }

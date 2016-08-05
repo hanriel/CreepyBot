@@ -35,12 +35,16 @@ namespace CreepyBot
             tb_oAuth.Text = Properties.Settings.Default.password;
             numericUpDown1.Value = Properties.Settings.Default.msgMax;
             numericUpDown2.Value = Properties.Settings.Default.msgDelay;
-            cb_shop.SelectedItem = Properties.Settings.Default.shop;
         }
 
         private void b_Exit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+
         }
     }
 }

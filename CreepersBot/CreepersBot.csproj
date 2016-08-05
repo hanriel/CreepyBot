@@ -26,7 +26,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>CreepyBot</ProductName>
     <PublisherName>SkyAndForest</PublisherName>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>16.28.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -96,6 +96,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="osuParse.cs" />
     <Compile Include="Utills.cs" />
     <Compile Include="cmds.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -145,6 +146,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="test.cs" />
+    <Compile Include="Utils\Notify.cs" />
     <EmbeddedResource Include="Forms\Authors.resx">
       <DependentUpon>Authors.cs</DependentUpon>
     </EmbeddedResource>
