@@ -32,12 +32,11 @@
             this.tb_Channel = new System.Windows.Forms.TextBox();
             this.gb_Account = new System.Windows.Forms.GroupBox();
             this.ll_oAuth = new System.Windows.Forms.LinkLabel();
+            this.la_Channel = new System.Windows.Forms.Label();
+            this.tb_User = new System.Windows.Forms.TextBox();
             this.la_UserName = new System.Windows.Forms.Label();
             this.tb_oAuth = new System.Windows.Forms.TextBox();
-            this.tb_User = new System.Windows.Forms.TextBox();
-            this.la_Channel = new System.Windows.Forms.Label();
             this.b_Save = new System.Windows.Forms.Button();
-            this.b_Exit = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.la_msgMax = new System.Windows.Forms.Label();
@@ -46,18 +45,19 @@
             this.tb_Account = new System.Windows.Forms.TabPage();
             this.tp_Chat = new System.Windows.Forms.TabPage();
             this.tp_Notify = new System.Windows.Forms.TabPage();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.la_What = new System.Windows.Forms.Label();
-            this.cb_Notify = new System.Windows.Forms.CheckBox();
-            this.tt_1 = new System.Windows.Forms.ToolTip(this.components);
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.gb_Sound = new System.Windows.Forms.GroupBox();
-            this.la_Volume = new System.Windows.Forms.Label();
-            this.la_Track = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.b_sAdd = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
+            this.b_sAdd = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.la_Track = new System.Windows.Forms.Label();
+            this.la_Volume = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.cb_Notify = new System.Windows.Forms.CheckBox();
+            this.la_What = new System.Windows.Forms.Label();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.tt_1 = new System.Windows.Forms.ToolTip(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.gb_Account.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -65,9 +65,9 @@
             this.tb_Account.SuspendLayout();
             this.tp_Chat.SuspendLayout();
             this.tp_Notify.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.gb_Sound.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_Channel
@@ -105,6 +105,24 @@
             this.tt_1.SetToolTip(this.ll_oAuth, "Key authorization issued by the service Twitch.tv\r\nClick on the link something to" +
         " get it ->");
             // 
+            // la_Channel
+            // 
+            this.la_Channel.AutoSize = true;
+            this.la_Channel.Location = new System.Drawing.Point(6, 16);
+            this.la_Channel.Name = "la_Channel";
+            this.la_Channel.Size = new System.Drawing.Size(80, 13);
+            this.la_Channel.TabIndex = 1;
+            this.la_Channel.Text = "Channel Name:";
+            this.tt_1.SetToolTip(this.la_Channel, "The channel name you want to connect.");
+            // 
+            // tb_User
+            // 
+            this.tb_User.Location = new System.Drawing.Point(92, 40);
+            this.tb_User.Name = "tb_User";
+            this.tb_User.Size = new System.Drawing.Size(100, 20);
+            this.tb_User.TabIndex = 2;
+            this.tt_1.SetToolTip(this.tb_User, "Bot user name that will be connected to the channel.");
+            // 
             // la_UserName
             // 
             this.la_UserName.AutoSize = true;
@@ -125,24 +143,6 @@
             this.tt_1.SetToolTip(this.tb_oAuth, "Key authorization issued by the service Twitch.tv\r\nClick on the link something to" +
         " get it ->");
             // 
-            // tb_User
-            // 
-            this.tb_User.Location = new System.Drawing.Point(92, 40);
-            this.tb_User.Name = "tb_User";
-            this.tb_User.Size = new System.Drawing.Size(100, 20);
-            this.tb_User.TabIndex = 2;
-            this.tt_1.SetToolTip(this.tb_User, "Bot user name that will be connected to the channel.");
-            // 
-            // la_Channel
-            // 
-            this.la_Channel.AutoSize = true;
-            this.la_Channel.Location = new System.Drawing.Point(6, 16);
-            this.la_Channel.Name = "la_Channel";
-            this.la_Channel.Size = new System.Drawing.Size(80, 13);
-            this.la_Channel.TabIndex = 1;
-            this.la_Channel.Text = "Channel Name:";
-            this.tt_1.SetToolTip(this.la_Channel, "The channel name you want to connect.");
-            // 
             // b_Save
             // 
             this.b_Save.Location = new System.Drawing.Point(12, 332);
@@ -152,16 +152,6 @@
             this.b_Save.Text = "Save";
             this.b_Save.UseVisualStyleBackColor = true;
             this.b_Save.Click += new System.EventHandler(this.b_Save_Click);
-            // 
-            // b_Exit
-            // 
-            this.b_Exit.Location = new System.Drawing.Point(93, 332);
-            this.b_Exit.Name = "b_Exit";
-            this.b_Exit.Size = new System.Drawing.Size(75, 23);
-            this.b_Exit.TabIndex = 2;
-            this.b_Exit.Text = "Exit";
-            this.b_Exit.UseVisualStyleBackColor = true;
-            this.b_Exit.Click += new System.EventHandler(this.b_Exit_Click);
             // 
             // numericUpDown1
             // 
@@ -260,6 +250,116 @@
             this.tp_Notify.Text = "Notify";
             this.tp_Notify.UseVisualStyleBackColor = true;
             // 
+            // gb_Sound
+            // 
+            this.gb_Sound.Controls.Add(this.numericUpDown3);
+            this.gb_Sound.Controls.Add(this.button1);
+            this.gb_Sound.Controls.Add(this.b_sAdd);
+            this.gb_Sound.Controls.Add(this.comboBox1);
+            this.gb_Sound.Controls.Add(this.la_Track);
+            this.gb_Sound.Controls.Add(this.la_Volume);
+            this.gb_Sound.Controls.Add(this.trackBar1);
+            this.gb_Sound.Location = new System.Drawing.Point(210, 6);
+            this.gb_Sound.Name = "gb_Sound";
+            this.gb_Sound.Size = new System.Drawing.Size(314, 276);
+            this.gb_Sound.TabIndex = 4;
+            this.gb_Sound.TabStop = false;
+            this.gb_Sound.Text = "Sound";
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(57, 67);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(96, 20);
+            this.numericUpDown3.TabIndex = 9;
+            this.numericUpDown3.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(131, 11);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Remove";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // b_sAdd
+            // 
+            this.b_sAdd.Location = new System.Drawing.Point(50, 11);
+            this.b_sAdd.Name = "b_sAdd";
+            this.b_sAdd.Size = new System.Drawing.Size(75, 23);
+            this.b_sAdd.TabIndex = 6;
+            this.b_sAdd.Text = "Add";
+            this.b_sAdd.UseVisualStyleBackColor = true;
+            this.b_sAdd.Click += new System.EventHandler(this.b_sAdd_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Хуйня.wav",
+            "Блядина.wav"});
+            this.comboBox1.Location = new System.Drawing.Point(9, 40);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(299, 21);
+            this.comboBox1.TabIndex = 5;
+            // 
+            // la_Track
+            // 
+            this.la_Track.AutoSize = true;
+            this.la_Track.Location = new System.Drawing.Point(6, 16);
+            this.la_Track.Name = "la_Track";
+            this.la_Track.Size = new System.Drawing.Size(38, 13);
+            this.la_Track.TabIndex = 4;
+            this.la_Track.Text = "Track:";
+            // 
+            // la_Volume
+            // 
+            this.la_Volume.AutoSize = true;
+            this.la_Volume.Location = new System.Drawing.Point(6, 69);
+            this.la_Volume.Name = "la_Volume";
+            this.la_Volume.Size = new System.Drawing.Size(45, 13);
+            this.la_Volume.TabIndex = 3;
+            this.la_Volume.Text = "Volume:";
+            this.la_Volume.Click += new System.EventHandler(this.la_Volume_Click);
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.LargeChange = 3;
+            this.trackBar1.Location = new System.Drawing.Point(6, 93);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(302, 45);
+            this.trackBar1.TabIndex = 2;
+            this.trackBar1.TickFrequency = 50;
+            this.trackBar1.Value = 100;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // cb_Notify
+            // 
+            this.cb_Notify.AutoSize = true;
+            this.cb_Notify.Location = new System.Drawing.Point(9, 265);
+            this.cb_Notify.Name = "cb_Notify";
+            this.cb_Notify.Size = new System.Drawing.Size(59, 17);
+            this.cb_Notify.TabIndex = 2;
+            this.cb_Notify.Text = "Notify?";
+            this.cb_Notify.UseVisualStyleBackColor = true;
+            // 
+            // la_What
+            // 
+            this.la_What.AutoSize = true;
+            this.la_What.Location = new System.Drawing.Point(6, 3);
+            this.la_What.Name = "la_What";
+            this.la_What.Size = new System.Drawing.Size(60, 13);
+            this.la_What.TabIndex = 1;
+            this.la_What.Text = "What Alert:";
+            this.tt_1.SetToolTip(this.la_What, "What are the warning display?");
+            // 
             // checkedListBox1
             // 
             this.checkedListBox1.CheckOnClick = true;
@@ -276,125 +376,24 @@
             this.checkedListBox1.Size = new System.Drawing.Size(198, 79);
             this.checkedListBox1.TabIndex = 0;
             // 
-            // la_What
+            // openFileDialog1
             // 
-            this.la_What.AutoSize = true;
-            this.la_What.Location = new System.Drawing.Point(6, 3);
-            this.la_What.Name = "la_What";
-            this.la_What.Size = new System.Drawing.Size(60, 13);
-            this.la_What.TabIndex = 1;
-            this.la_What.Text = "What Alert:";
-            this.tt_1.SetToolTip(this.la_What, "What are the warning display?");
-            // 
-            // cb_Notify
-            // 
-            this.cb_Notify.AutoSize = true;
-            this.cb_Notify.Location = new System.Drawing.Point(9, 265);
-            this.cb_Notify.Name = "cb_Notify";
-            this.cb_Notify.Size = new System.Drawing.Size(59, 17);
-            this.cb_Notify.TabIndex = 2;
-            this.cb_Notify.Text = "Notify?";
-            this.cb_Notify.UseVisualStyleBackColor = true;
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.LargeChange = 3;
-            this.trackBar1.Location = new System.Drawing.Point(6, 67);
-            this.trackBar1.Maximum = 100;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(302, 45);
-            this.trackBar1.TabIndex = 2;
-            this.trackBar1.TickFrequency = 50;
-            this.trackBar1.Value = 100;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            // 
-            // gb_Sound
-            // 
-            this.gb_Sound.Controls.Add(this.numericUpDown3);
-            this.gb_Sound.Controls.Add(this.button1);
-            this.gb_Sound.Controls.Add(this.b_sAdd);
-            this.gb_Sound.Controls.Add(this.comboBox1);
-            this.gb_Sound.Controls.Add(this.la_Track);
-            this.gb_Sound.Controls.Add(this.la_Volume);
-            this.gb_Sound.Controls.Add(this.trackBar1);
-            this.gb_Sound.Location = new System.Drawing.Point(210, 6);
-            this.gb_Sound.Name = "gb_Sound";
-            this.gb_Sound.Size = new System.Drawing.Size(314, 263);
-            this.gb_Sound.TabIndex = 4;
-            this.gb_Sound.TabStop = false;
-            this.gb_Sound.Text = "Sound";
-            // 
-            // la_Volume
-            // 
-            this.la_Volume.AutoSize = true;
-            this.la_Volume.Location = new System.Drawing.Point(6, 43);
-            this.la_Volume.Name = "la_Volume";
-            this.la_Volume.Size = new System.Drawing.Size(45, 13);
-            this.la_Volume.TabIndex = 3;
-            this.la_Volume.Text = "Volume:";
-            // 
-            // la_Track
-            // 
-            this.la_Track.AutoSize = true;
-            this.la_Track.Location = new System.Drawing.Point(6, 16);
-            this.la_Track.Name = "la_Track";
-            this.la_Track.Size = new System.Drawing.Size(38, 13);
-            this.la_Track.TabIndex = 4;
-            this.la_Track.Text = "Track:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Хуйня.wav",
-            "Блядина.wav"});
-            this.comboBox1.Location = new System.Drawing.Point(50, 13);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(96, 21);
-            this.comboBox1.TabIndex = 5;
-            // 
-            // b_sAdd
-            // 
-            this.b_sAdd.Location = new System.Drawing.Point(152, 11);
-            this.b_sAdd.Name = "b_sAdd";
-            this.b_sAdd.Size = new System.Drawing.Size(75, 23);
-            this.b_sAdd.TabIndex = 6;
-            this.b_sAdd.Text = "Add";
-            this.b_sAdd.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(233, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Remove";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(50, 40);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(96, 20);
-            this.numericUpDown3.TabIndex = 9;
-            this.numericUpDown3.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Audio files|*.mp3;*.wav;*.ogg";
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 363);
-            this.ControlBox = false;
             this.Controls.Add(this.tc_Settings);
             this.Controls.Add(this.b_Save);
-            this.Controls.Add(this.b_Exit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Settings";
             this.Text = "Settings";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Settings_FormClosing);
             this.Load += new System.EventHandler(this.f_Settings_Load);
             this.gb_Account.ResumeLayout(false);
             this.gb_Account.PerformLayout();
@@ -406,10 +405,10 @@
             this.tp_Chat.PerformLayout();
             this.tp_Notify.ResumeLayout(false);
             this.tp_Notify.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.gb_Sound.ResumeLayout(false);
             this.gb_Sound.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -420,7 +419,6 @@
         private System.Windows.Forms.GroupBox gb_Account;
         private System.Windows.Forms.Label la_Channel;
         private System.Windows.Forms.Button b_Save;
-        private System.Windows.Forms.Button b_Exit;
         private System.Windows.Forms.LinkLabel ll_oAuth;
         private System.Windows.Forms.Label la_UserName;
         private System.Windows.Forms.TextBox tb_oAuth;
@@ -445,5 +443,6 @@
         private System.Windows.Forms.Button b_sAdd;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -36,7 +36,7 @@
             this.mi_Connect = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_Disconnect = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mi_Options = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_Settings = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_viewHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_About = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,11 +46,15 @@
             this.b_Send = new System.Windows.Forms.Button();
             this.tc_1 = new System.Windows.Forms.TabControl();
             this.tp_1 = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.rtb_Chat = new System.Windows.Forms.RichTextBox();
             this.tp_2 = new System.Windows.Forms.TabPage();
             this.m_Menu.SuspendLayout();
             this.tc_1.SuspendLayout();
             this.tp_1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Notifications
@@ -63,7 +67,7 @@
             // 
             this.m_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.botToolStripMenuItem,
-            this.mi_Options,
+            this.mi_Settings,
             this.mi_Help});
             this.m_Menu.Location = new System.Drawing.Point(0, 0);
             this.m_Menu.Name = "m_Menu";
@@ -84,7 +88,7 @@
             // mi_Connect
             // 
             this.mi_Connect.Name = "mi_Connect";
-            this.mi_Connect.Size = new System.Drawing.Size(152, 22);
+            this.mi_Connect.Size = new System.Drawing.Size(133, 22);
             this.mi_Connect.Text = "Connect";
             this.mi_Connect.Click += new System.EventHandler(this.b_connact);
             // 
@@ -92,23 +96,24 @@
             // 
             this.mi_Disconnect.Enabled = false;
             this.mi_Disconnect.Name = "mi_Disconnect";
-            this.mi_Disconnect.Size = new System.Drawing.Size(152, 22);
+            this.mi_Disconnect.Size = new System.Drawing.Size(133, 22);
             this.mi_Disconnect.Text = "Disconnect";
             this.mi_Disconnect.Click += new System.EventHandler(this.Disconnect);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // mi_Options
+            // mi_Settings
             // 
-            this.mi_Options.Name = "mi_Options";
-            this.mi_Options.Size = new System.Drawing.Size(61, 20);
-            this.mi_Options.Text = "Options";
-            this.mi_Options.Click += new System.EventHandler(this.mi_Options_Click);
+            this.mi_Settings.Name = "mi_Settings";
+            this.mi_Settings.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.mi_Settings.Size = new System.Drawing.Size(61, 20);
+            this.mi_Settings.Text = "Settings";
+            this.mi_Settings.Click += new System.EventHandler(this.mi_Settings_Click);
             // 
             // mi_Help
             // 
@@ -142,12 +147,15 @@
             // 
             // tb_Send
             // 
+            this.tb_Send.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_Send.Enabled = false;
             this.tb_Send.Location = new System.Drawing.Point(6, 357);
             this.tb_Send.MaxLength = 150;
             this.tb_Send.Name = "tb_Send";
-            this.tb_Send.Size = new System.Drawing.Size(319, 20);
+            this.tb_Send.Size = new System.Drawing.Size(495, 20);
             this.tb_Send.TabIndex = 2;
+            this.tb_Send.TextChanged += new System.EventHandler(this.tb_Send_TextChanged);
             this.tb_Send.KeyDown += new System.Windows.Forms.KeyEventHandler(this.eSend);
             // 
             // ircTimer
@@ -156,8 +164,9 @@
             // 
             // b_Send
             // 
+            this.b_Send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.b_Send.Enabled = false;
-            this.b_Send.Location = new System.Drawing.Point(331, 354);
+            this.b_Send.Location = new System.Drawing.Point(507, 355);
             this.b_Send.Name = "b_Send";
             this.b_Send.Size = new System.Drawing.Size(75, 23);
             this.b_Send.TabIndex = 3;
@@ -167,6 +176,9 @@
             // 
             // tc_1
             // 
+            this.tc_1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tc_1.Controls.Add(this.tp_1);
             this.tc_1.Controls.Add(this.tp_2);
             this.tc_1.Location = new System.Drawing.Point(12, 27);
@@ -177,9 +189,7 @@
             // 
             // tp_1
             // 
-            this.tp_1.Controls.Add(this.rtb_Chat);
-            this.tp_1.Controls.Add(this.tb_Send);
-            this.tp_1.Controls.Add(this.b_Send);
+            this.tp_1.Controls.Add(this.splitContainer1);
             this.tp_1.Location = new System.Drawing.Point(4, 22);
             this.tp_1.Name = "tp_1";
             this.tp_1.Padding = new System.Windows.Forms.Padding(3);
@@ -188,12 +198,36 @@
             this.tp_1.Text = "Chat";
             this.tp_1.UseVisualStyleBackColor = true;
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.b_Send);
+            this.splitContainer1.Panel1.Controls.Add(this.tb_Send);
+            this.splitContainer1.Panel1.Controls.Add(this.rtb_Chat);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer1.Size = new System.Drawing.Size(816, 383);
+            this.splitContainer1.SplitterDistance = 585;
+            this.splitContainer1.TabIndex = 6;
+            // 
             // rtb_Chat
             // 
+            this.rtb_Chat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_Chat.HideSelection = false;
-            this.rtb_Chat.Location = new System.Drawing.Point(3, 6);
+            this.rtb_Chat.Location = new System.Drawing.Point(6, 6);
             this.rtb_Chat.Name = "rtb_Chat";
-            this.rtb_Chat.Size = new System.Drawing.Size(403, 345);
+            this.rtb_Chat.Size = new System.Drawing.Size(576, 345);
             this.rtb_Chat.TabIndex = 5;
             this.rtb_Chat.Text = "";
             // 
@@ -215,10 +249,9 @@
             this.ClientSize = new System.Drawing.Size(848, 448);
             this.Controls.Add(this.tc_1);
             this.Controls.Add(this.m_Menu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.m_Menu;
-            this.MaximizeBox = false;
             this.Name = "f_Main";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.f_Main_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
@@ -226,7 +259,10 @@
             this.m_Menu.PerformLayout();
             this.tc_1.ResumeLayout(false);
             this.tp_1.ResumeLayout(false);
-            this.tp_1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,7 +272,7 @@
 
         private System.Windows.Forms.NotifyIcon Notifications;
         private System.Windows.Forms.MenuStrip m_Menu;
-        private System.Windows.Forms.ToolStripMenuItem mi_Options;
+        private System.Windows.Forms.ToolStripMenuItem mi_Settings;
         private System.Windows.Forms.ToolStripMenuItem mi_Help;
         private System.Windows.Forms.ToolStripMenuItem mi_viewHelp;
         private System.Windows.Forms.ToolStripMenuItem mi_About;
@@ -252,6 +288,7 @@
         private System.Windows.Forms.TabPage tp_2;
         public System.Windows.Forms.RichTextBox rtb_Chat;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }
 

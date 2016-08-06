@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -17,5 +18,7 @@ using System.Runtime.InteropServices;
 //      Minor Version 
 //      Build Number
 //      Revision
-[assembly: AssemblyVersion("16.28.3.1")]
-[assembly: AssemblyFileVersion("16.28.3.1")]
+[assembly: AssemblyVersion("16.31.6.2")]
+[assembly: AssemblyFileVersion("16.31.6.2")]
+[assembly: NeutralResourcesLanguage("ru")]
+

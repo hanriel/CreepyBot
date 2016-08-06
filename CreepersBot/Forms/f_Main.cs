@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using WMPLib;
 
 namespace CreepyBot
 {
@@ -26,6 +27,8 @@ namespace CreepyBot
         string host, user, password, channel, msgJoin;
         int port, msgDelay, msgMax;
         bool con;
+        WMPLib.WindowsMediaPlayer Player;
+
         #endregion Irs Vars
 
         #region Main
@@ -38,6 +41,9 @@ namespace CreepyBot
             LoadConf();
             InitializeComponent();
             rtb_Chat.ScrollToCaret();
+            Player = new WMPLib.WindowsMediaPlayer();
+            Player.MediaError += new WMPLib._WMPOCXEvents_MediaErrorEventHandler(Player_MediaError);
+            
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -52,7 +58,7 @@ namespace CreepyBot
 
         private void f_Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (U.MBox(3, "Save?"))
+            if (U.MBox(3, "Exit?"))
             {
                 if (con == true) onDisconnect();
             }
@@ -61,7 +67,7 @@ namespace CreepyBot
 
         private void mi_Authors_Click(object sender, EventArgs e) { Authors f_authors = new Authors(); f_authors.Show(); }
 
-        private void mi_Options_Click(object sender, EventArgs e) { Settings f_settings = new Settings(); f_settings.Show(); }
+        private void mi_Settings_Click(object sender, EventArgs e) { Settings f_settings = new Settings(); f_settings.Show(); }
 
         #endregion Main
 
@@ -163,8 +169,7 @@ namespace CreepyBot
                     #region PRIVMSG
                     //!shop мячик 1000
                     //!<команда> <товар> [кол-во]
-
-                    Notifications.ShowBalloonTip(3000, sender, msg, ToolTipIcon.Info);
+                    PlayFile();
 
                     SendC($"{sender} : {msg}");
                     if (msg.StartsWith("!shop") && msg.Length == 5) msgQueq("Закрыто ^_^ "+sender);
@@ -172,6 +177,7 @@ namespace CreepyBot
                             if (msg.StartsWith("!shop ")) msgQueq("КУПЛЕНО!");
                                 else
                                     if(msg.StartsWith("!shop")&&msg.Length > 5) msgQueq("Команда не найдена! Напишите '!help' для получения списка команд.");
+
                     if (msg.StartsWith("!bot") && msg.Length == 4) msgQueq($"{AppName} v.{Application.ProductVersion} Alpha VoHiYo , {sender}");
                     if (msg.StartsWith("!ip") && msg.Length == 3) msgQueq($"IP:82.193.125.32:2900 SSSsss Version: 1.8.x , {sender}");
                     if (msg.StartsWith("!vk") && msg.Length == 3) msgQueq($"Group: https://vk.com/skyandforest , {sender}");
@@ -280,6 +286,16 @@ namespace CreepyBot
             tb_Send.Clear();
         }
 
+        private void tb_Send_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void SendC(string msg)
         {
             var date = DateTime.Now.ToString("HH:mm:ss");
@@ -323,6 +339,22 @@ namespace CreepyBot
         }
 
         #endregion Interface
+
+        private void PlayFile()
+        {
+            string path = Properties.Settings.Default.path;
+            path += $"\\sounds\\{Notify.Default.track}";
+            MessageBox.Show(path);
+            Player.URL = path;
+            Player.settings.volume = Notify.Default.volume;
+            Player.controls.play();
+        }
+
+        private void Player_MediaError(object pMediaObject)
+        {
+            MessageBox.Show("Cannot play media file.");
+            this.Close();
+        }
 
         #endregion Irc
     }

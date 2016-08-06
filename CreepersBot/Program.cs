@@ -13,6 +13,7 @@ namespace CreepyBot
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Properties.Settings.Default.path = Application.StartupPath;
             Application.Run(new Forms.LoadForm());
         }
     }
