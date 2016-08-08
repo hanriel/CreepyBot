@@ -110,7 +110,7 @@
             // mi_Settings
             // 
             this.mi_Settings.Name = "mi_Settings";
-            this.mi_Settings.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.mi_Settings.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.mi_Settings.Size = new System.Drawing.Size(61, 20);
             this.mi_Settings.Text = "Settings";
             this.mi_Settings.Click += new System.EventHandler(this.mi_Settings_Click);
@@ -153,9 +153,8 @@
             this.tb_Send.Location = new System.Drawing.Point(6, 357);
             this.tb_Send.MaxLength = 150;
             this.tb_Send.Name = "tb_Send";
-            this.tb_Send.Size = new System.Drawing.Size(495, 20);
+            this.tb_Send.Size = new System.Drawing.Size(496, 20);
             this.tb_Send.TabIndex = 2;
-            this.tb_Send.TextChanged += new System.EventHandler(this.tb_Send_TextChanged);
             this.tb_Send.KeyDown += new System.Windows.Forms.KeyEventHandler(this.eSend);
             // 
             // ircTimer
@@ -166,7 +165,7 @@
             // 
             this.b_Send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.b_Send.Enabled = false;
-            this.b_Send.Location = new System.Drawing.Point(507, 355);
+            this.b_Send.Location = new System.Drawing.Point(508, 355);
             this.b_Send.Name = "b_Send";
             this.b_Send.Size = new System.Drawing.Size(75, 23);
             this.b_Send.TabIndex = 3;
@@ -203,6 +202,7 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -211,12 +211,9 @@
             this.splitContainer1.Panel1.Controls.Add(this.b_Send);
             this.splitContainer1.Panel1.Controls.Add(this.tb_Send);
             this.splitContainer1.Panel1.Controls.Add(this.rtb_Chat);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer1.Panel1MinSize = 256;
             this.splitContainer1.Size = new System.Drawing.Size(816, 383);
-            this.splitContainer1.SplitterDistance = 585;
+            this.splitContainer1.SplitterDistance = 586;
             this.splitContainer1.TabIndex = 6;
             // 
             // rtb_Chat
@@ -224,10 +221,9 @@
             this.rtb_Chat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtb_Chat.HideSelection = false;
             this.rtb_Chat.Location = new System.Drawing.Point(6, 6);
             this.rtb_Chat.Name = "rtb_Chat";
-            this.rtb_Chat.Size = new System.Drawing.Size(576, 345);
+            this.rtb_Chat.Size = new System.Drawing.Size(577, 345);
             this.rtb_Chat.TabIndex = 5;
             this.rtb_Chat.Text = "";
             // 
@@ -286,9 +282,9 @@
         private System.Windows.Forms.TabControl tc_1;
         private System.Windows.Forms.TabPage tp_1;
         private System.Windows.Forms.TabPage tp_2;
-        public System.Windows.Forms.RichTextBox rtb_Chat;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.RichTextBox rtb_Chat;
     }
 }
 

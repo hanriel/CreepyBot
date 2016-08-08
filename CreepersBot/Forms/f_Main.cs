@@ -11,10 +11,10 @@ namespace CreepyBot
 {
     public partial class f_Main : Form
     {
+        #region Irs Vars
+
         _1 U = new _1();
         string AppName = Properties.Settings.Default.AppName;
-
-        #region Irs Vars
 
         bool Bshop;
         _message cMsg = new _message();
@@ -111,7 +111,8 @@ namespace CreepyBot
 
         private void Connect()
         {
-                SendC("[BOT] : Conneting...");
+            rtb_Chat.Text += "Conneting...";
+            SendC("[BOT] : Conneting...");
 
                 irc = new TcpClient(host, port);
                 Read = new StreamReader(irc.GetStream());
@@ -139,7 +140,11 @@ namespace CreepyBot
 
         private void Timer(object sender, EventArgs e)
         {
+
+            rtb_Chat.ScrollToCaret();
+
             DeleteLine();
+            Player.settings.volume = Notify.Default.volume;
             if (!ifConncect())
             {
                 onDisconnect();
@@ -169,7 +174,7 @@ namespace CreepyBot
                     #region PRIVMSG
                     //!shop мячик 1000
                     //!<команда> <товар> [кол-во]
-                    PlayFile();
+                    //PlayFile();
 
                     SendC($"{sender} : {msg}");
                     if (msg.StartsWith("!shop") && msg.Length == 5) msgQueq("Закрыто ^_^ "+sender);
@@ -286,16 +291,6 @@ namespace CreepyBot
             tb_Send.Clear();
         }
 
-        private void tb_Send_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void SendC(string msg)
         {
             var date = DateTime.Now.ToString("HH:mm:ss");
@@ -330,7 +325,7 @@ namespace CreepyBot
             {
                 if (rtb_Chat.Lines.Count() > Properties.Settings.Default.msgMax)
                 {
-                    int Count = rtb_Chat.Lines.Count();
+                    int Count = rtb_Chat.Lines[1].Length;
                     int start_index = rtb_Chat.GetFirstCharIndexFromLine(0);
                     rtb_Chat.Text = rtb_Chat.Text.Remove(start_index, Count);
                 }
@@ -344,16 +339,14 @@ namespace CreepyBot
         {
             string path = Properties.Settings.Default.path;
             path += $"\\sounds\\{Notify.Default.track}";
-            MessageBox.Show(path);
             Player.URL = path;
-            Player.settings.volume = Notify.Default.volume;
-            Player.controls.play();
+            //Player.controls.play();
         }
 
         private void Player_MediaError(object pMediaObject)
         {
-            MessageBox.Show("Cannot play media file.");
-            this.Close();
+            MessageBox.Show("Cannot play media file.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Close();
         }
 
         #endregion Irc

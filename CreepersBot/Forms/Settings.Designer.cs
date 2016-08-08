@@ -47,7 +47,7 @@
             this.tp_Notify = new System.Windows.Forms.TabPage();
             this.gb_Sound = new System.Windows.Forms.GroupBox();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
+            this.b_removeTrack = new System.Windows.Forms.Button();
             this.b_sAdd = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.la_Track = new System.Windows.Forms.Label();
@@ -56,6 +56,14 @@
             this.cb_Notify = new System.Windows.Forms.CheckBox();
             this.la_What = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.tp_Commands = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.b_cmdRemove = new System.Windows.Forms.Button();
+            this.lb_cmdList = new System.Windows.Forms.ListBox();
+            this.b_cmdAdd = new System.Windows.Forms.Button();
             this.tt_1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.gb_Account.SuspendLayout();
@@ -68,6 +76,7 @@
             this.gb_Sound.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.tp_Commands.SuspendLayout();
             this.SuspendLayout();
             // 
             // tb_Channel
@@ -205,6 +214,7 @@
             this.tc_Settings.Controls.Add(this.tb_Account);
             this.tc_Settings.Controls.Add(this.tp_Chat);
             this.tc_Settings.Controls.Add(this.tp_Notify);
+            this.tc_Settings.Controls.Add(this.tp_Commands);
             this.tc_Settings.Location = new System.Drawing.Point(12, 12);
             this.tc_Settings.Name = "tc_Settings";
             this.tc_Settings.SelectedIndex = 0;
@@ -253,7 +263,7 @@
             // gb_Sound
             // 
             this.gb_Sound.Controls.Add(this.numericUpDown3);
-            this.gb_Sound.Controls.Add(this.button1);
+            this.gb_Sound.Controls.Add(this.b_removeTrack);
             this.gb_Sound.Controls.Add(this.b_sAdd);
             this.gb_Sound.Controls.Add(this.comboBox1);
             this.gb_Sound.Controls.Add(this.la_Track);
@@ -279,14 +289,15 @@
             0});
             this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
             // 
-            // button1
+            // b_removeTrack
             // 
-            this.button1.Location = new System.Drawing.Point(131, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Remove";
-            this.button1.UseVisualStyleBackColor = true;
+            this.b_removeTrack.Location = new System.Drawing.Point(131, 11);
+            this.b_removeTrack.Name = "b_removeTrack";
+            this.b_removeTrack.Size = new System.Drawing.Size(75, 23);
+            this.b_removeTrack.TabIndex = 7;
+            this.b_removeTrack.Text = "Remove";
+            this.b_removeTrack.UseVisualStyleBackColor = true;
+            this.b_removeTrack.Click += new System.EventHandler(this.b_removeTrack_Click);
             // 
             // b_sAdd
             // 
@@ -326,7 +337,6 @@
             this.la_Volume.Size = new System.Drawing.Size(45, 13);
             this.la_Volume.TabIndex = 3;
             this.la_Volume.Text = "Volume:";
-            this.la_Volume.Click += new System.EventHandler(this.la_Volume_Click);
             // 
             // trackBar1
             // 
@@ -376,6 +386,84 @@
             this.checkedListBox1.Size = new System.Drawing.Size(198, 79);
             this.checkedListBox1.TabIndex = 0;
             // 
+            // tp_Commands
+            // 
+            this.tp_Commands.Controls.Add(this.label2);
+            this.tp_Commands.Controls.Add(this.richTextBox1);
+            this.tp_Commands.Controls.Add(this.label1);
+            this.tp_Commands.Controls.Add(this.textBox1);
+            this.tp_Commands.Controls.Add(this.b_cmdRemove);
+            this.tp_Commands.Controls.Add(this.lb_cmdList);
+            this.tp_Commands.Controls.Add(this.b_cmdAdd);
+            this.tp_Commands.Location = new System.Drawing.Point(4, 22);
+            this.tp_Commands.Name = "tp_Commands";
+            this.tp_Commands.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_Commands.Size = new System.Drawing.Size(530, 288);
+            this.tp_Commands.TabIndex = 3;
+            this.tp_Commands.Text = "Commands";
+            this.tp_Commands.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(259, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Return:";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(307, 42);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(217, 96);
+            this.richTextBox1.TabIndex = 6;
+            this.richTextBox1.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(244, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Command:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(307, 16);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(217, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // b_cmdRemove
+            // 
+            this.b_cmdRemove.Location = new System.Drawing.Point(449, 144);
+            this.b_cmdRemove.Name = "b_cmdRemove";
+            this.b_cmdRemove.Size = new System.Drawing.Size(75, 23);
+            this.b_cmdRemove.TabIndex = 3;
+            this.b_cmdRemove.Text = "Remove";
+            this.b_cmdRemove.UseVisualStyleBackColor = true;
+            // 
+            // lb_cmdList
+            // 
+            this.lb_cmdList.FormattingEnabled = true;
+            this.lb_cmdList.Location = new System.Drawing.Point(87, 16);
+            this.lb_cmdList.Name = "lb_cmdList";
+            this.lb_cmdList.Size = new System.Drawing.Size(151, 251);
+            this.lb_cmdList.TabIndex = 1;
+            this.lb_cmdList.SelectedIndexChanged += new System.EventHandler(this.lb_cmdList_SelectedIndexChanged);
+            // 
+            // b_cmdAdd
+            // 
+            this.b_cmdAdd.Location = new System.Drawing.Point(247, 144);
+            this.b_cmdAdd.Name = "b_cmdAdd";
+            this.b_cmdAdd.Size = new System.Drawing.Size(75, 23);
+            this.b_cmdAdd.TabIndex = 0;
+            this.b_cmdAdd.Text = "Add";
+            this.b_cmdAdd.UseVisualStyleBackColor = true;
+            this.b_cmdAdd.Click += new System.EventHandler(this.b_cmdAdd_Click);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -409,6 +497,8 @@
             this.gb_Sound.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.tp_Commands.ResumeLayout(false);
+            this.tp_Commands.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -439,10 +529,18 @@
         private System.Windows.Forms.Label la_Track;
         private System.Windows.Forms.Label la_Volume;
         private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button b_removeTrack;
         private System.Windows.Forms.Button b_sAdd;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TabPage tp_Commands;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button b_cmdRemove;
+        private System.Windows.Forms.ListBox lb_cmdList;
+        private System.Windows.Forms.Button b_cmdAdd;
     }
 }
