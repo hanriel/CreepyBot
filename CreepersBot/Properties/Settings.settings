@@ -18,7 +18,7 @@
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="msgDelay" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">5</Value>
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="JoinMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">CreepersBot joined to chat...</Value>
@@ -28,9 +28,6 @@
     </Setting>
     <Setting Name="ircPort" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">6667</Value>
-    </Setting>
-    <Setting Name="shop" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="path" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

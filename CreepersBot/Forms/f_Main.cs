@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using WMPLib;
+using System.Net;
+using Newtonsoft.Json;
+using CreepyBot.Utils;
 
 namespace CreepyBot
 {
@@ -16,7 +19,11 @@ namespace CreepyBot
         _1 U = new _1();
         string AppName = Properties.Settings.Default.AppName;
 
-        bool Bshop;
+        string path_cmds = $"{Properties.Settings.Default.path}\\cmds.cbot";
+
+        string path = Properties.Settings.Default.path;
+
+        SaveOrLoad SOL = new SaveOrLoad();
         _message cMsg = new _message();
         private TcpClient irc;
         public StreamReader Read;
@@ -27,7 +34,6 @@ namespace CreepyBot
         string host, user, password, channel, msgJoin;
         int port, msgDelay, msgMax;
         bool con;
-        WMPLib.WindowsMediaPlayer Player;
 
         #endregion Irs Vars
 
@@ -41,9 +47,6 @@ namespace CreepyBot
             LoadConf();
             InitializeComponent();
             rtb_Chat.ScrollToCaret();
-            Player = new WMPLib.WindowsMediaPlayer();
-            Player.MediaError += new WMPLib._WMPOCXEvents_MediaErrorEventHandler(Player_MediaError);
-            
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -51,7 +54,7 @@ namespace CreepyBot
             U.Exit();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mi_Exit_e(object sender, EventArgs e)
         {
             Close();
         }
@@ -67,7 +70,7 @@ namespace CreepyBot
 
         private void mi_Authors_Click(object sender, EventArgs e) { Authors f_authors = new Authors(); f_authors.Show(); }
 
-        private void mi_Settings_Click(object sender, EventArgs e) { Settings f_settings = new Settings(); f_settings.Show(); }
+        private void mi_Settings_Click(object sender, EventArgs e) { Settings f_settings = new Settings(); f_settings.ShowDialog(); }
 
         #endregion Main
 
@@ -83,7 +86,6 @@ namespace CreepyBot
             msgDelay = Properties.Settings.Default.msgDelay;
             msgMax = Properties.Settings.Default.msgMax;
             msgJoin = Properties.Settings.Default.JoinMessage;
-            Bshop = Properties.Settings.Default.shop;
         }
 
         private bool checkConf()
@@ -140,29 +142,13 @@ namespace CreepyBot
 
         private void Timer(object sender, EventArgs e)
         {
-
             rtb_Chat.ScrollToCaret();
-
             DeleteLine();
-            Player.settings.volume = Notify.Default.volume;
-            if (!ifConncect())
-            {
-                onDisconnect();
-                U.MBox(2, "Подключение прервано!");
-            }
             TrySendingMessages();
             TryRecieveMessages();
         }
 
-        void Disconnect(object sender, EventArgs e)
-        {
-            onDisconnect();
-        }
-
-        void LeaveC()
-        {
-            Write.WriteLine("PART");
-        }
+        void Disconnect(object sender, EventArgs e){onDisconnect();}
 
         void cmdList(string cmd)
         {
@@ -172,22 +158,30 @@ namespace CreepyBot
             {
                 case "PRIVMSG":
                     #region PRIVMSG
-                    //!shop мячик 1000
-                    //!<команда> <товар> [кол-во]
-                    //PlayFile();
-
                     SendC($"{sender} : {msg}");
-                    if (msg.StartsWith("!shop") && msg.Length == 5) msgQueq("Закрыто ^_^ "+sender);
-                        else
-                            if (msg.StartsWith("!shop ")) msgQueq("КУПЛЕНО!");
-                                else
-                                    if(msg.StartsWith("!shop")&&msg.Length > 5) msgQueq("Команда не найдена! Напишите '!help' для получения списка команд.");
+                    path += $"\\sounds\\{Notify.Default.track}";
+                    if (Notify.Default.track != "")
+                    {
+                        U.PlayFile(path);
+                    }
 
-                    if (msg.StartsWith("!bot") && msg.Length == 4) msgQueq($"{AppName} v.{Application.ProductVersion} Alpha VoHiYo , {sender}");
-                    if (msg.StartsWith("!ip") && msg.Length == 3) msgQueq($"IP:82.193.125.32:2900 SSSsss Version: 1.8.x , {sender}");
-                    if (msg.StartsWith("!vk") && msg.Length == 3) msgQueq($"Group: https://vk.com/skyandforest , {sender}");
-                    if (msg.StartsWith("!steam") && msg.Length == 6) msgQueq($"http://steamcommunity.com/id/creepermenn/ , {sender}");
-                    if (msg.StartsWith("!request") && msg.Length == 8) msgQueq($"https://vk.com/topic-64685487_35498756 , {sender}");
+                    List<Settings.cmds> tmp = new List<Settings.cmds>();
+                    tmp = SOL.FromFile(path_cmds);
+                    for (int i = 0; i < tmp.Count; i++)
+                    {
+                        if (tmp[i].name == msg)
+                        {
+                            msgQueq(tmp[i].desk); 
+                            break;
+                        }
+                    }
+
+                    if (msg.StartsWith("!bot") && msg.Length == 4) msgQueq($"{AppName} v.{Application.ProductVersion} Alpha VoHiYo , CreeperMenn © 2016");
+                    //if (msg.StartsWith("!steam") && msg.Length == 6) msgQueq($"{sender}, http://goo.gl/aAXyDT");
+                    //if (msg.StartsWith("!vk") && msg.Length == 3) msgQueq($"{sender}, https://goo.gl/QB5aia");
+                    //if (msg.StartsWith("!donate") && msg.Length == 7) msgQueq($"{sender}, https://goo.gl/it1u3g");
+                    //if (msg.StartsWith("!osu") && msg.Length == 4) msgQueq($"{sender}, https://goo.gl/R43ALu");
+
                     #endregion PRIVMSG
                     break;
                 case "NOTICE":
@@ -335,18 +329,20 @@ namespace CreepyBot
 
         #endregion Interface
 
-        private void PlayFile()
+        private void aUpdate(object sender, EventArgs e)
         {
-            string path = Properties.Settings.Default.path;
-            path += $"\\sounds\\{Notify.Default.track}";
-            Player.URL = path;
-            //Player.controls.play();
-        }
-
-        private void Player_MediaError(object pMediaObject)
-        {
-            MessageBox.Show("Cannot play media file.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            Close();
+            using (WebClient c = new WebClient())
+            {
+                var s = c.DownloadString("http://creeperman8922.hol.es/ver.cbt");
+                if(s != Application.ProductVersion)
+                {
+                    if (MessageBox.Show("Available New Update!\n\rWould you like to download it ?", "CreepersBot", MessageBoxButtons.YesNo, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start($"{path}\\Updater.exe");
+                        System.Diagnostics.Process.GetCurrentProcess().Kill();
+                    }
+                }
+            }
         }
 
         #endregion Irc
@@ -357,11 +353,7 @@ namespace CreepyBot
     public class _message
     {
         public string name, cmd, channel, msg;
-
-        public _message()
-        {
-
-        }
+        public _message(){}
         public void ParseToString(string msgRaw)
         {
             name = Regex.Match(msgRaw, @"(?:[:](\S+)\!)").Groups[1].Value;

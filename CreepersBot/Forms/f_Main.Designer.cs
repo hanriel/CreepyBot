@@ -20,6 +20,8 @@
             base.Dispose(disposing);
         }
 
+        
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -35,7 +37,7 @@
             this.botToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_Connect = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_Disconnect = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_Settings = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_viewHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,17 +45,19 @@
             this.mi_Authors = new System.Windows.Forms.ToolStripMenuItem();
             this.tb_Send = new System.Windows.Forms.TextBox();
             this.ircTimer = new System.Windows.Forms.Timer(this.components);
-            this.b_Send = new System.Windows.Forms.Button();
             this.tc_1 = new System.Windows.Forms.TabControl();
             this.tp_1 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.rtb_Chat = new System.Windows.Forms.RichTextBox();
             this.tp_2 = new System.Windows.Forms.TabPage();
+            this.b_Send = new CreepyBot.Utils.RedButton();
+            this.button1 = new CreepyBot.Utils.RedButton();
             this.m_Menu.SuspendLayout();
             this.tc_1.SuspendLayout();
             this.tp_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +84,7 @@
             this.botToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mi_Connect,
             this.mi_Disconnect,
-            this.exitToolStripMenuItem});
+            this.mi_Exit});
             this.botToolStripMenuItem.Name = "botToolStripMenuItem";
             this.botToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.botToolStripMenuItem.Text = "Bot";
@@ -100,12 +104,12 @@
             this.mi_Disconnect.Text = "Disconnect";
             this.mi_Disconnect.Click += new System.EventHandler(this.Disconnect);
             // 
-            // exitToolStripMenuItem
+            // mi_Exit
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.mi_Exit.Name = "mi_Exit";
+            this.mi_Exit.Size = new System.Drawing.Size(133, 22);
+            this.mi_Exit.Text = "Exit";
+            this.mi_Exit.Click += new System.EventHandler(this.mi_Exit_e);
             // 
             // mi_Settings
             // 
@@ -161,18 +165,6 @@
             // 
             this.ircTimer.Tick += new System.EventHandler(this.Timer);
             // 
-            // b_Send
-            // 
-            this.b_Send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.b_Send.Enabled = false;
-            this.b_Send.Location = new System.Drawing.Point(508, 355);
-            this.b_Send.Name = "b_Send";
-            this.b_Send.Size = new System.Drawing.Size(75, 23);
-            this.b_Send.TabIndex = 3;
-            this.b_Send.Text = "Send";
-            this.b_Send.UseVisualStyleBackColor = true;
-            this.b_Send.Click += new System.EventHandler(this.bSend);
-            // 
             // tc_1
             // 
             this.tc_1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -212,6 +204,10 @@
             this.splitContainer1.Panel1.Controls.Add(this.tb_Send);
             this.splitContainer1.Panel1.Controls.Add(this.rtb_Chat);
             this.splitContainer1.Panel1MinSize = 256;
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Size = new System.Drawing.Size(816, 383);
             this.splitContainer1.SplitterDistance = 586;
             this.splitContainer1.TabIndex = 6;
@@ -237,15 +233,48 @@
             this.tp_2.Text = "Auto";
             this.tp_2.UseVisualStyleBackColor = true;
             // 
+            // b_Send
+            // 
+            this.b_Send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.b_Send.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.b_Send.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.b_Send.Enabled = false;
+            this.b_Send.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.b_Send.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.b_Send.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_Send.ForeColor = System.Drawing.Color.White;
+            this.b_Send.Location = new System.Drawing.Point(508, 355);
+            this.b_Send.MinimumSize = new System.Drawing.Size(75, 23);
+            this.b_Send.Name = "b_Send";
+            this.b_Send.Size = new System.Drawing.Size(75, 23);
+            this.b_Send.TabIndex = 3;
+            this.b_Send.Text = "Send";
+            this.b_Send.UseVisualStyleBackColor = true;
+            this.b_Send.Click += new System.EventHandler(this.bSend);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(145, 354);
+            this.button1.MinimumSize = new System.Drawing.Size(75, 23);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Don\'t press";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.aUpdate);
+            // 
             // f_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(848, 448);
             this.Controls.Add(this.tc_1);
             this.Controls.Add(this.m_Menu);
-            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.m_Menu;
             this.Name = "f_Main";
@@ -257,6 +286,7 @@
             this.tp_1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -278,13 +308,14 @@
         private System.Windows.Forms.ToolStripMenuItem botToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mi_Connect;
         private System.Windows.Forms.ToolStripMenuItem mi_Disconnect;
-        private System.Windows.Forms.Button b_Send;
+        private Utils.RedButton b_Send;
         private System.Windows.Forms.TabControl tc_1;
         private System.Windows.Forms.TabPage tp_1;
         private System.Windows.Forms.TabPage tp_2;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mi_Exit;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.RichTextBox rtb_Chat;
+        private Utils.RedButton button1;
     }
 }
 

@@ -18,7 +18,7 @@
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Background</UpdateMode>
+    <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
@@ -29,8 +29,9 @@
     <PublisherName>SkyAndForest</PublisherName>
     <MinimumRequiredVersion>16.31.5.10</MinimumRequiredVersion>
     <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>16.32.1.%2a</ApplicationVersion>
+    <ApplicationVersion>16.33.4.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -44,6 +45,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,10 +60,10 @@
     <OutputPath>bin\Realise x64\</OutputPath>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
+    <ApplicationIcon>botIco.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>47EBED7F013506F99B60C8FBDB711F6EC9E783AB</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>36C98B6A13DAC34A8B2EC290676682F95F073355</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>CreepersBot_TemporaryKey.pfx</ManifestKeyFile>
@@ -81,7 +83,14 @@
   <PropertyGroup>
     <StartupObject>CreepyBot.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -98,30 +107,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cmds.cs" />
     <Compile Include="Notify.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Notify.settings</DependentUpon>
     </Compile>
-    <Compile Include="osuParse.cs" />
     <Compile Include="Utills.cs" />
-    <Compile Include="cmds.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>cmds.settings</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Authors.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Authors.Designer.cs">
       <DependentUpon>Authors.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\cmdList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\cmdList.Designer.cs">
-      <DependentUpon>cmdList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoadForm.cs">
       <SubType>Form</SubType>
@@ -153,13 +149,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="test.cs" />
-    <Compile Include="Utils\Notify.cs" />
+    <Compile Include="Utils\RedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\SaveOrLoad.cs" />
     <EmbeddedResource Include="Forms\Authors.resx">
       <DependentUpon>Authors.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\cmdList.resx">
-      <DependentUpon>cmdList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoadForm.resx">
       <DependentUpon>LoadForm.cs</DependentUpon>
@@ -178,14 +173,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="cmds.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>cmds.Designer.cs</LastGenOutput>
-    </None>
+    <None Include="CreepersBot_TemporaryKey.pfx" />
     <None Include="Notify.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Notify.Designer.cs</LastGenOutput>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -193,9 +186,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 и x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -206,9 +199,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MedievalLogo.png" />
@@ -235,8 +225,13 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="sounds\" />
+    <None Include="Resources\botIco.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="botIco.ico" />
+    <None Include="Resources\logo2 512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

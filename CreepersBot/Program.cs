@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,8 +14,13 @@ namespace CreepyBot
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Properties.Settings.Default.path = Application.StartupPath;
-            Application.Run(new Forms.LoadForm());
+            string path = Application.StartupPath;
+            Properties.Settings.Default.path = path;
+            if (!Directory.Exists($"{path}\\sounds"))
+            {
+                Directory.CreateDirectory($"{path}\\sounds");
+            }
+            Application.Run(new Forms.f_Load());
         }
     }
 }

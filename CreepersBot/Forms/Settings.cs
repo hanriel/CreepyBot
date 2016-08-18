@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-
+using CreepyBot.Utils;
 namespace CreepyBot
 {
     
@@ -20,15 +20,18 @@ namespace CreepyBot
         List<cmds> cmdlist = new List<cmds>();
 
         _1 U = new _1();
+        SaveOrLoad SOL = new SaveOrLoad();
 
-        string _path = Properties.Settings.Default.path;
+        string path_main = Properties.Settings.Default.path;
+        string path_cmds = $"{Properties.Settings.Default.path}\\cmds.cbot";
 
         public Settings()
         {
             InitializeComponent();
+            
         }
 
-        private void b_Save_Click(object sender, EventArgs e){Close();}
+        private void b_Save_Click(object sender, EventArgs e){ SaveAll(); }
 
         /// <summary>
         /// Загружает конфигурации из файлов настроек и устанавливает их на позиции
@@ -43,7 +46,13 @@ namespace CreepyBot
             numericUpDown1.Value = Properties.Settings.Default.msgMax;
             numericUpDown2.Value = Properties.Settings.Default.msgDelay;
 
-            saveLoad(1);
+            cmdlist = SOL.FromFile(path_cmds);
+
+            lb_cmdList.Items.Clear();
+            for (int o = 0; o < cmdlist.Count; o++)
+            {
+                lb_cmdList.Items.Add(cmdlist[o].name);
+            }
 
 
             trackBar1.Value = Notify.Default.volume;
@@ -53,18 +62,12 @@ namespace CreepyBot
             comboBox1.SelectedIndex = comboBox1.Items.IndexOf(Notify.Default.track);
         }
 
-        private void Settings_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (U.MBox(1, "Save?")) SaveAll();
-            else e.Cancel = true;
-        }
-
         /// <summary>
         /// Поучает файлы из папки /sounds
         /// </summary>
         private void getFiles()
         {
-            string[] files = Directory.GetFiles($"{_path}\\sounds\\");
+            string[] files = Directory.GetFiles($"{path_main}\\sounds\\");
             for (int i = 0; i < files.Length; i++)
             {
                 comboBox1.Items.Add(Path.GetFileName(files[i]));
@@ -103,7 +106,7 @@ namespace CreepyBot
         {
             openFileDialog1.ShowDialog();
             string file = openFileDialog1.FileName;
-            File.Copy(file, $"{_path}\\sounds\\{Path.GetFileName(file)}", true);
+            File.Copy(file, $"{path_main}\\sounds\\{Path.GetFileName(file)}", true);
             reloadCBox();
         }
 
@@ -114,7 +117,7 @@ namespace CreepyBot
         /// <param name="e"></param>
         private void b_removeTrack_Click(object sender, EventArgs e)
         {
-            File.Delete($"{_path}\\{comboBox1.GetItemText(comboBox1.SelectedItem)}");
+            File.Delete($"{path_main}\\{comboBox1.GetItemText(comboBox1.SelectedItem)}");
             reloadCBox();
         }
 
@@ -127,21 +130,13 @@ namespace CreepyBot
             getFiles();
         }
 
-        public void messag(int i)
-        {
-            cmds k = new cmds();
-            k.name = $"Name{i}";
-            k.desk = $"Detsk{i}";
-            cmdlist.Add(k);
-        }
-
         private void saveLoad(int m)
         {
             switch (m)
             {
                 case 0:
                     //serialize
-                    using (Stream stream = File.Open("F:\\test.cbot", FileMode.Create))
+                    using (Stream stream = File.Open($"{Properties.Settings.Default.path}\\test.cbot", FileMode.Create))
                     {
                         var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 
@@ -150,19 +145,22 @@ namespace CreepyBot
                     break;
                 case 1:
                     //deserialize
-                    using (Stream stream = File.Open("F:\\test.cbot", FileMode.Open))
+                    try { 
+                    using (Stream stream = File.Open($"{Properties.Settings.Default.path}\\test.cbot", FileMode.OpenOrCreate))
                     {
-                        var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                        cmdlist.Clear();
-                        cmdlist = (List<cmds>)bformatter.Deserialize(stream);
-                        lb_cmdList.Items.Clear();
-                        for (int i = 0; i < cmdlist.Count; i++)
-                        {
-                            lb_cmdList.Items.Add(cmdlist[i].name);
+                        if (File.Exists($"{Properties.Settings.Default.path}\\test.cbot")) {
+                                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                                cmdlist.Clear();
+                                cmdlist = (List<cmds>)bformatter.Deserialize(stream);
+                                lb_cmdList.Items.Clear();
+                                for (int i = 0; i < cmdlist.Count; i++)
+                                {
+                                    lb_cmdList.Items.Add(cmdlist[i].name);
+                                }
                         }
-                        richTextBox1.Clear();
-                        textBox1.Clear();
                     }
+                    }
+                    catch{ }
                     break;
                 default:
                     break;
@@ -172,20 +170,68 @@ namespace CreepyBot
 
         private void b_cmdAdd_Click(object sender, EventArgs e)
         {
-            cmds tmp = new cmds();
-            
-            tmp.name = textBox1.Text;
-            //cmdlist.Find(tmp.name);
-            tmp.desk = richTextBox1.Text;
-            cmdlist.Add(tmp);
-            saveLoad(0);
-            saveLoad(1);
+            if (textBox1.Text.Length == 0 && richTextBox1.Text.Length == 0)
+            {
+                MessageBox.Show("Запоните поля!!!");
+            }
+            else
+            {
+                bool b = false;
+                List<cmds> tmp = new List<cmds>();
+                tmp = SOL.FromFile(path_cmds);
+                for (int i = 0; i < tmp.Count; i++)
+                {
+                    if(tmp[i].name == textBox1.Text)
+                    {
+                        MessageBox.Show("Такая комманда уже существует!");
+                        b = true;
+                        break;
+                    }
+                }
+                if(b != true)
+                {
+                    cmds t = new cmds();
+                    t.name = textBox1.Text;
+                    t.desk = richTextBox1.Text;
+                    cmdlist.Add(t);
+
+                    SOL.ToFile(path_cmds, cmdlist);
+                    cmdlist = SOL.FromFile(path_cmds);
+
+                    lb_cmdList.Items.Clear();
+                    for (int o = 0; o < cmdlist.Count; o++)
+                    {
+                        lb_cmdList.Items.Add(cmdlist[o].name);
+                    }
+                }
+                
+            }
         }
 
         private void lb_cmdList_SelectedIndexChanged(object sender, EventArgs e)
         {
             richTextBox1.Text = cmdlist[lb_cmdList.SelectedIndex].desk;
             textBox1.Text = cmdlist[lb_cmdList.SelectedIndex].name;
+        }
+
+        private void b_cmdRemove_Click(object sender, EventArgs e)
+        {
+            if(lb_cmdList.SelectedIndex != -1)
+            {
+                cmdlist.RemoveAt(lb_cmdList.SelectedIndex);
+                SOL.ToFile(path_cmds, cmdlist);
+                cmdlist = SOL.FromFile(path_cmds);
+
+                lb_cmdList.Items.Clear();
+                for (int o = 0; o < cmdlist.Count; o++)
+                {
+                    lb_cmdList.Items.Add(cmdlist[o].name);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите команду");
+            }
         }
     }
 }

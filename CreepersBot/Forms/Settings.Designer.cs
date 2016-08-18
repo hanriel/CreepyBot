@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.tb_Channel = new System.Windows.Forms.TextBox();
             this.gb_Account = new System.Windows.Forms.GroupBox();
             this.ll_oAuth = new System.Windows.Forms.LinkLabel();
@@ -444,6 +445,7 @@
             this.b_cmdRemove.TabIndex = 3;
             this.b_cmdRemove.Text = "Remove";
             this.b_cmdRemove.UseVisualStyleBackColor = true;
+            this.b_cmdRemove.Click += new System.EventHandler(this.b_cmdRemove_Click);
             // 
             // lb_cmdList
             // 
@@ -477,11 +479,11 @@
             this.Controls.Add(this.tc_Settings);
             this.Controls.Add(this.b_Save);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Settings";
             this.Text = "Settings";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Settings_FormClosing);
             this.Load += new System.EventHandler(this.f_Settings_Load);
             this.gb_Account.ResumeLayout(false);
             this.gb_Account.PerformLayout();
