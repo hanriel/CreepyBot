@@ -6,11 +6,7 @@ namespace CreepyBot.Utils
 {
     class CHTrans
     {
-        public CHTrans()
-        {
-
-        }
-
+        public CHTrans(){}
         public static string GET(string Url, string Data)
         {
             WebRequest req = WebRequest.Create(Url + Data);

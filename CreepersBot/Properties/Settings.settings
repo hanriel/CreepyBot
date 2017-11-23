@@ -3,13 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="channel" Type="System.String" Scope="User">
-      <Value Profile="(Default)">CreeperMenn</Value>
+      <Value Profile="(Default)">CMenn</Value>
     </Setting>
     <Setting Name="password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">oauth:vrl7oh07sss5qsuyutb0x9mq3nbvg6</Value>
+      <Value Profile="(Default)">oauth:**</Value>
     </Setting>
     <Setting Name="user" Type="System.String" Scope="User">
-      <Value Profile="(Default)">CreepersBot</Value>
+      <Value Profile="(Default)">CreepyBot</Value>
     </Setting>
     <Setting Name="AppName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">CreepyBot</Value>
@@ -21,7 +21,7 @@
       <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="JoinMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">CreepersBot joined to chat...</Value>
+      <Value Profile="(Default)">CreepyBot joined to chat...</Value>
     </Setting>
     <Setting Name="ircHost" Type="System.String" Scope="User">
       <Value Profile="(Default)">irc.twitch.tv</Value>
