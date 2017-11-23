@@ -67,6 +67,11 @@
             this.b_cmdAdd = new System.Windows.Forms.Button();
             this.tt_1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.b_ex_cmds = new System.Windows.Forms.Button();
+            this.b_in_cmd = new System.Windows.Forms.Button();
+            this.ofd_cmds = new System.Windows.Forms.OpenFileDialog();
+            this.sfd_cmds = new System.Windows.Forms.SaveFileDialog();
+            this.b_cmd_edit = new System.Windows.Forms.Button();
             this.gb_Account.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -389,6 +394,9 @@
             // 
             // tp_Commands
             // 
+            this.tp_Commands.Controls.Add(this.b_cmd_edit);
+            this.tp_Commands.Controls.Add(this.b_in_cmd);
+            this.tp_Commands.Controls.Add(this.b_ex_cmds);
             this.tp_Commands.Controls.Add(this.label2);
             this.tp_Commands.Controls.Add(this.richTextBox1);
             this.tp_Commands.Controls.Add(this.label1);
@@ -439,7 +447,7 @@
             // 
             // b_cmdRemove
             // 
-            this.b_cmdRemove.Location = new System.Drawing.Point(449, 144);
+            this.b_cmdRemove.Location = new System.Drawing.Point(6, 122);
             this.b_cmdRemove.Name = "b_cmdRemove";
             this.b_cmdRemove.Size = new System.Drawing.Size(75, 23);
             this.b_cmdRemove.TabIndex = 3;
@@ -450,7 +458,7 @@
             // lb_cmdList
             // 
             this.lb_cmdList.FormattingEnabled = true;
-            this.lb_cmdList.Location = new System.Drawing.Point(87, 16);
+            this.lb_cmdList.Location = new System.Drawing.Point(87, 6);
             this.lb_cmdList.Name = "lb_cmdList";
             this.lb_cmdList.Size = new System.Drawing.Size(151, 251);
             this.lb_cmdList.TabIndex = 1;
@@ -458,7 +466,7 @@
             // 
             // b_cmdAdd
             // 
-            this.b_cmdAdd.Location = new System.Drawing.Point(247, 144);
+            this.b_cmdAdd.Location = new System.Drawing.Point(6, 64);
             this.b_cmdAdd.Name = "b_cmdAdd";
             this.b_cmdAdd.Size = new System.Drawing.Size(75, 23);
             this.b_cmdAdd.TabIndex = 0;
@@ -470,6 +478,45 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Audio files|*.mp3;*.wav;*.ogg";
+            // 
+            // b_ex_cmds
+            // 
+            this.b_ex_cmds.Location = new System.Drawing.Point(6, 35);
+            this.b_ex_cmds.Name = "b_ex_cmds";
+            this.b_ex_cmds.Size = new System.Drawing.Size(75, 23);
+            this.b_ex_cmds.TabIndex = 8;
+            this.b_ex_cmds.Text = "Export";
+            this.b_ex_cmds.UseVisualStyleBackColor = true;
+            this.b_ex_cmds.Click += new System.EventHandler(this.b_ex_cmds_Click);
+            // 
+            // b_in_cmd
+            // 
+            this.b_in_cmd.Location = new System.Drawing.Point(6, 6);
+            this.b_in_cmd.Name = "b_in_cmd";
+            this.b_in_cmd.Size = new System.Drawing.Size(75, 23);
+            this.b_in_cmd.TabIndex = 9;
+            this.b_in_cmd.Text = "Inport";
+            this.b_in_cmd.UseVisualStyleBackColor = true;
+            this.b_in_cmd.Click += new System.EventHandler(this.b_in_cmd_Click);
+            // 
+            // ofd_cmds
+            // 
+            this.ofd_cmds.FileName = "exp_cmds";
+            this.ofd_cmds.Filter = "CBot files |*.cbot";
+            // 
+            // sfd_cmds
+            // 
+            this.sfd_cmds.FileName = "exp_cmds";
+            this.sfd_cmds.Filter = "CBot files |*.cbot";
+            // 
+            // b_cmd_edit
+            // 
+            this.b_cmd_edit.Location = new System.Drawing.Point(6, 93);
+            this.b_cmd_edit.Name = "b_cmd_edit";
+            this.b_cmd_edit.Size = new System.Drawing.Size(75, 23);
+            this.b_cmd_edit.TabIndex = 10;
+            this.b_cmd_edit.Text = "Edit";
+            this.b_cmd_edit.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 
@@ -544,5 +591,10 @@
         private System.Windows.Forms.Button b_cmdRemove;
         private System.Windows.Forms.ListBox lb_cmdList;
         private System.Windows.Forms.Button b_cmdAdd;
+        private System.Windows.Forms.Button b_in_cmd;
+        private System.Windows.Forms.Button b_ex_cmds;
+        private System.Windows.Forms.OpenFileDialog ofd_cmds;
+        private System.Windows.Forms.SaveFileDialog sfd_cmds;
+        private System.Windows.Forms.Button b_cmd_edit;
     }
 }

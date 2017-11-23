@@ -26,7 +26,7 @@ namespace CreepyBot.Utils
                     return true;
                 }
             }
-            catch { System.Windows.Forms.MessageBox.Show("Ошибка записи файла"); }
+            catch { System.Windows.Forms.MessageBox.Show("Ошибка записи файла:" + p); }
             return false;
         }
 
@@ -35,7 +35,7 @@ namespace CreepyBot.Utils
         /// </summary>
         /// <param name="p">Путь к файлу</param>
         /// <returns></returns>
-        public List<Settings.cmds> FromFile(string p)
+        public List<Settings.cmds> ListFromFile(string p)
         {
             List<Settings.cmds> cmdlist = new List<Settings.cmds>();
             try
@@ -46,7 +46,7 @@ namespace CreepyBot.Utils
                     cmdlist = (List<Settings.cmds>)bf.Deserialize(s);
                 }
             }
-            catch { System.Windows.Forms.MessageBox.Show("Ошибка чтения файла"); }
+            catch { }
             return cmdlist;
         }
     }

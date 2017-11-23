@@ -1,13 +1,8 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreepersBot", "CreepersBot\CreepersBot.csproj", "{980AF2EE-7BEE-4202-9043-F34C7D5FC7C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreepyBot Installer", "CreepyBot Installer\CreepyBot Installer.csproj", "{63283518-C97B-4B2C-9132-2CA3CA9AC4CF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{BC69CE2C-587E-4784-8F1B-7222CD9C26E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreepersBot", "CreepersBot\CreepersBotold.csproj", "{980AF2EE-7BEE-4202-9043-F34C7D5FC7C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +26,24 @@ Global
 		{BC69CE2C-587E-4784-8F1B-7222CD9C26E8}.Realise x64|Any CPU.ActiveCfg = Release|Any CPU
 		{BC69CE2C-587E-4784-8F1B-7222CD9C26E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC69CE2C-587E-4784-8F1B-7222CD9C26E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BEDE8D2-5111-40CA-835F-6D4665AA02CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BEDE8D2-5111-40CA-835F-6D4665AA02CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BEDE8D2-5111-40CA-835F-6D4665AA02CB}.Realise x64|Any CPU.ActiveCfg = Release|Any CPU
+		{0BEDE8D2-5111-40CA-835F-6D4665AA02CB}.Realise x64|Any CPU.Build.0 = Release|Any CPU
+		{0BEDE8D2-5111-40CA-835F-6D4665AA02CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BEDE8D2-5111-40CA-835F-6D4665AA02CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88B2F97-EBA3-4961-B613-32B2D9175CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88B2F97-EBA3-4961-B613-32B2D9175CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88B2F97-EBA3-4961-B613-32B2D9175CEC}.Realise x64|Any CPU.ActiveCfg = Release|Any CPU
+		{B88B2F97-EBA3-4961-B613-32B2D9175CEC}.Realise x64|Any CPU.Build.0 = Release|Any CPU
+		{B88B2F97-EBA3-4961-B613-32B2D9175CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88B2F97-EBA3-4961-B613-32B2D9175CEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B03E3F01-3340-46D9-8103-323845F70A57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B03E3F01-3340-46D9-8103-323845F70A57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B03E3F01-3340-46D9-8103-323845F70A57}.Realise x64|Any CPU.ActiveCfg = Release|Any CPU
+		{B03E3F01-3340-46D9-8103-323845F70A57}.Realise x64|Any CPU.Build.0 = Release|Any CPU
+		{B03E3F01-3340-46D9-8103-323845F70A57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B03E3F01-3340-46D9-8103-323845F70A57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,23 +5,24 @@ using System.Net.Sockets;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using WMPLib;
 using System.Net;
 using Newtonsoft.Json;
 using CreepyBot.Utils;
+using CreepyBot.Forms;
+using System.Net.Http;
 
 namespace CreepyBot
 {
     public partial class f_Main : Form
     {
-        #region Irs Vars
+        #region Vars
 
         _1 U = new _1();
         string AppName = Properties.Settings.Default.AppName;
 
         string path_cmds = $"{Properties.Settings.Default.path}\\cmds.cbot";
-
-        string path = Properties.Settings.Default.path;
+        string path_sound = $"{Properties.Settings.Default.path}\\sounds\\";
+        string path_timespam = $"{Properties.Settings.Default.path}\\timespam.cbot";
 
         SaveOrLoad SOL = new SaveOrLoad();
         _message cMsg = new _message();
@@ -35,7 +36,7 @@ namespace CreepyBot
         int port, msgDelay, msgMax;
         bool con;
 
-        #endregion Irs Vars
+        #endregion Vars
 
         #region Main
 
@@ -59,14 +60,7 @@ namespace CreepyBot
             Close();
         }
 
-        private void f_Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (U.MBox(3, "Exit?"))
-            {
-                if (con == true) onDisconnect();
-            }
-            else e.Cancel = true;
-        }
+        private void f_Main_FormClosing(object sender, FormClosingEventArgs e) { if (U.MBox(3, "Exit?")) { if (con == true) onDisconnect(); } else e.Cancel = true; }
 
         private void mi_Authors_Click(object sender, EventArgs e) { Authors f_authors = new Authors(); f_authors.Show(); }
 
@@ -116,39 +110,39 @@ namespace CreepyBot
             rtb_Chat.Text += "Conneting...";
             SendC("[BOT] : Conneting...");
 
-                irc = new TcpClient(host, port);
-                Read = new StreamReader(irc.GetStream());
-                Write = new StreamWriter(irc.GetStream());
-                stream = irc.GetStream();
+            irc = new TcpClient(host, port);
+            Read = new StreamReader(irc.GetStream());
+            Write = new StreamWriter(irc.GetStream());
+            stream = irc.GetStream();
 
-                Write.WriteLine("PASS " + password + Environment.NewLine
-                + "NICK " + user + Environment.NewLine
-                + "USER " + user + " 8 * :" + user);
-                if (ifConncect())
-                {
-                    SendC("[BOT] : Successfully connected!");
-                }
-                else
-                {
-                    SendC("[BOT] : Connection Error!!!");
-                }
-                SendC($"[BOT] : Join to the channel : {channel.ToUpper()}");
-                Write.WriteLine("JOIN #" + channel);
-                Write.Flush();
-                msgLast = DateTime.Now;
-                msgSend(msgJoin);
-                onConnect();
+            Write.WriteLine("PASS " + password + Environment.NewLine
+            + "NICK " + user + Environment.NewLine
+            + "USER " + user + " 8 * :" + user);
+            if (ifConncect())
+            {
+                SendC("[BOT] : Successfully connected!");
+            }
+            else
+            {
+                SendC("[BOT] : Connection Error!!!");
+            }
+            SendC($"[BOT] : Join to the channel : {channel.ToUpper()}");
+            Write.WriteLine("JOIN #" + channel);
+            Write.Flush();
+            msgLast = DateTime.Now;
+            msgSend(msgJoin);
+            onConnect();
         }
 
         private void Timer(object sender, EventArgs e)
         {
-            rtb_Chat.ScrollToCaret();
+            //rtb_Chat.ScrollToCaret();
             DeleteLine();
             TrySendingMessages();
             TryRecieveMessages();
         }
 
-        void Disconnect(object sender, EventArgs e){onDisconnect();}
+        void Disconnect(object sender, EventArgs e) { onDisconnect(); }
 
         void cmdList(string cmd)
         {
@@ -159,28 +153,18 @@ namespace CreepyBot
                 case "PRIVMSG":
                     #region PRIVMSG
                     SendC($"{sender} : {msg}");
-                    path += $"\\sounds\\{Notify.Default.track}";
                     if (Notify.Default.track != "")
                     {
-                        U.PlayFile(path);
+                        U.PlayFile(path_sound + Notify.Default.track);
                     }
-
-                    List<Settings.cmds> tmp = new List<Settings.cmds>();
-                    tmp = SOL.FromFile(path_cmds);
-                    for (int i = 0; i < tmp.Count; i++)
+                    List<Settings.cmds> cmdsList = new List<Settings.cmds>();
+                    cmdsList = SOL.ListFromFile(path_cmds);
+                    for (int i = 0; i < cmdsList.Count; i++)
                     {
-                        if (tmp[i].name == msg)
-                        {
-                            msgQueq(tmp[i].desk); 
-                            break;
-                        }
+                        if (cmdsList[i].name == msg){msgQueq(cmdsList[i].desk);break;}
                     }
-
-                    if (msg.StartsWith("!bot") && msg.Length == 4) msgQueq($"{AppName} v.{Application.ProductVersion} Alpha VoHiYo , CreeperMenn © 2016");
-                    //if (msg.StartsWith("!steam") && msg.Length == 6) msgQueq($"{sender}, http://goo.gl/aAXyDT");
-                    //if (msg.StartsWith("!vk") && msg.Length == 3) msgQueq($"{sender}, https://goo.gl/QB5aia");
-                    //if (msg.StartsWith("!donate") && msg.Length == 7) msgQueq($"{sender}, https://goo.gl/it1u3g");
-                    //if (msg.StartsWith("!osu") && msg.Length == 4) msgQueq($"{sender}, https://goo.gl/R43ALu");
+                    if (msg.StartsWith("!почта ") && msg.Length > 7) CHTrans.GET("http://skyandforest.hol.es/CProj/Mail/add.php", $"?s={sender}&text={msg.Substring(7)}&ch={channel}");
+                    if (msg.StartsWith("!bot") && msg.Length == 4) msgQueq($"{AppName} v.{Application.ProductVersion} Alpha VoHiYo , SkyAndForest © 2016");
 
                     #endregion PRIVMSG
                     break;
@@ -249,14 +233,7 @@ namespace CreepyBot
 
         bool ifConncect()
         {
-            if (irc.Connected)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            if (irc.Connected) { return true; } else { return false; }
         }
 
         void TrySendingMessages()
@@ -279,6 +256,12 @@ namespace CreepyBot
             }
         }
 
+        public void b_Debug_Click(object sender, EventArgs e)
+        {
+            Debug d = new Debug();
+            d.ShowDialog();
+        }
+
         private void bSend(object sender, EventArgs e)
         {
             msgSend(tb_Send.Text);
@@ -290,7 +273,7 @@ namespace CreepyBot
             var date = DateTime.Now.ToString("HH:mm:ss");
             rtb_Chat.Text += $"\r\n[{date}] {msg}";
         }
-        
+
         private void onConnect()
         {
             tb_Send.Enabled = true;
@@ -331,25 +314,24 @@ namespace CreepyBot
 
         private void aUpdate(object sender, EventArgs e)
         {
-            using (WebClient c = new WebClient())
-            {
-                var s = c.DownloadString("http://creeperman8922.hol.es/ver.cbt");
-                if(s != Application.ProductVersion)
-                {
-                    if (MessageBox.Show("Available New Update!\n\rWould you like to download it ?", "CreepersBot", MessageBoxButtons.YesNo, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-                    {
-                        System.Diagnostics.Process.Start($"{path}\\Updater.exe");
-                        System.Diagnostics.Process.GetCurrentProcess().Kill();
-                    }
-                }
-            }
+            //using (WebClient c = new WebClient())
+            //{
+            //    var s = c.DownloadString("http://creeperman8922.hol.es/ver.cbt");
+            //    if (s != Application.ProductVersion)
+            //    {
+            //        if (MessageBox.Show("Available New Update!\nWould you like to download it ?", "CreepersBot", MessageBoxButtons.YesNo, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            //        {
+            //            System.Diagnostics.Process.Start($"{path}\\Updater.exe");
+            //            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            //        }
+            //    }
+            //}
         }
 
         #endregion Irc
     }
 
     #region msg
-
     public class _message
     {
         public string name, cmd, channel, msg;

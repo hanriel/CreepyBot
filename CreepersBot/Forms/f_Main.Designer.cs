@@ -49,8 +49,10 @@
             this.tp_1 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.rtb_Chat = new System.Windows.Forms.RichTextBox();
+            this.lb_Chatters = new System.Windows.Forms.ListBox();
             this.tp_2 = new System.Windows.Forms.TabPage();
             this.b_Send = new CreepyBot.Utils.RedButton();
+            this.b_Debug = new CreepyBot.Utils.RedButton();
             this.button1 = new CreepyBot.Utils.RedButton();
             this.m_Menu.SuspendLayout();
             this.tc_1.SuspendLayout();
@@ -207,6 +209,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.b_Debug);
+            this.splitContainer1.Panel2.Controls.Add(this.lb_Chatters);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Size = new System.Drawing.Size(816, 383);
             this.splitContainer1.SplitterDistance = 586;
@@ -222,6 +226,18 @@
             this.rtb_Chat.Size = new System.Drawing.Size(577, 345);
             this.rtb_Chat.TabIndex = 5;
             this.rtb_Chat.Text = "";
+            // 
+            // lb_Chatters
+            // 
+            this.lb_Chatters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lb_Chatters.BackColor = System.Drawing.Color.Wheat;
+            this.lb_Chatters.FormattingEnabled = true;
+            this.lb_Chatters.Location = new System.Drawing.Point(3, 6);
+            this.lb_Chatters.Name = "lb_Chatters";
+            this.lb_Chatters.Size = new System.Drawing.Size(217, 342);
+            this.lb_Chatters.TabIndex = 1;
             // 
             // tp_2
             // 
@@ -252,8 +268,27 @@
             this.b_Send.UseVisualStyleBackColor = true;
             this.b_Send.Click += new System.EventHandler(this.bSend);
             // 
+            // b_Debug
+            // 
+            this.b_Debug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.b_Debug.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.b_Debug.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.b_Debug.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.b_Debug.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.b_Debug.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_Debug.ForeColor = System.Drawing.Color.White;
+            this.b_Debug.Location = new System.Drawing.Point(64, 354);
+            this.b_Debug.MinimumSize = new System.Drawing.Size(75, 23);
+            this.b_Debug.Name = "b_Debug";
+            this.b_Debug.Size = new System.Drawing.Size(75, 23);
+            this.b_Debug.TabIndex = 2;
+            this.b_Debug.Text = "Debug";
+            this.b_Debug.UseVisualStyleBackColor = false;
+            this.b_Debug.Click += new System.EventHandler(this.b_Debug_Click);
+            // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -316,6 +351,8 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.RichTextBox rtb_Chat;
         private Utils.RedButton button1;
+        private System.Windows.Forms.ListBox lb_Chatters;
+        private Utils.RedButton b_Debug;
     }
 }
 

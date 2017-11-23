@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SkyAndForest")]
 [assembly: AssemblyProduct("CreepyBot")]
-[assembly: AssemblyCopyright("Copyright SkyAndForest ©  2016")]
+[assembly: AssemblyCopyright("Copyright Федосеев Данил ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 //      Minor Version 
 //      Build Number
 //      Revision
-[assembly: AssemblyVersion("16.33.4.2")]
-[assembly: AssemblyFileVersion("16.33.4.2")]
+[assembly: AssemblyVersion("17.6.2.1")]
+[assembly: AssemblyFileVersion("17.6.2.1")]
 [assembly: NeutralResourcesLanguage("ru")]
 
